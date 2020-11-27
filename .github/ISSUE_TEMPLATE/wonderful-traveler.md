@@ -7,17 +7,6 @@ assignees: ''
 
 ---
 
-## PR 형식
-- [Client] / #88 / edit: readme
-
-## Commit message 형식
-- [title] / body
-- edit: readme
-
-## Issue 형식
-- [title] / body
-- Issue Card
-
 ### ISSUE
 - Group:  `client`, `server`, `sr`
 - Type: `bug`, `feature`, `delete`
