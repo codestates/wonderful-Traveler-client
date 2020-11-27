@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "create-react-app": "^4.0.1"
+  },
+  "name": "wonderful-traveler-client",
+  "description": "",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hyukeun/wonderful-Traveler-client.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hyukeun/wonderful-Traveler-client/issues"
+  },
+  "homepage": "https://github.com/hyukeun/wonderful-Traveler-client#readme"
+}
