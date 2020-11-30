@@ -10,7 +10,7 @@ class Header extends Component {
     document.addEventListener('scroll', function () {
       var currentScrollValue = document.documentElement.scrollTop;
       let header = document.getElementById("scroll");
-      if (currentScrollValue > 480) {
+      if (currentScrollValue > 300) {
         header.classList.add("add-background");
       } else {
         header.classList.remove("add-background");
@@ -23,7 +23,6 @@ class Header extends Component {
     } else {
       this.setState({ spreadMenu: false })
     }
-    console.log(this.state)
   }
 
   render() {

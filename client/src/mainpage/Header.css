@@ -1,7 +1,7 @@
 header {
   position: fixed;
   width: 100%;
-  z-index: 100;
+  z-index: 8;
   height: 60px;
   top: 0;
 }
@@ -13,6 +13,7 @@ header {
   margin: 0;
   padding: 0;
   vertical-align: baseline;
+  z-index: 2;
 }
 .Logo{
   font-size: 30px;
@@ -36,8 +37,7 @@ header {
   
   .menu-wrap {
     position: fixed;
-    float: right;
-    margin-left: 95%;
+    right: 0;
   }
   
   .menu-wrap .toggler {
@@ -48,11 +48,13 @@ header {
     width: 50px;
     height: 50px;
     opacity: 0;
+    right: 0;
   }
   
   .menu-wrap .hamburger {
     position: absolute;
     top: 0;
+    right: 0;
     z-index: 1;
     width: 60px;
     height: 60px;
@@ -159,11 +161,13 @@ header {
   }
   
   .menu-wrap .menu > div > div > ul > li {
+    position: relative;
     list-style: none;
     color: #fff;
     font-size: 1.5rem;
     padding: 1rem;
     cursor: pointer;
+    z-index: 5;
   }
   
   .menu-wrap .menu > div > div > ul > li > a {
@@ -176,6 +180,8 @@ header {
     color: #fff;
     font-size: 1.3rem;
     margin-bottom: 5px;
+    position: relative;
+    z-index: 6;
   }
 
   .menu-wrap .menu > div > div > ul > ul > li > a{
