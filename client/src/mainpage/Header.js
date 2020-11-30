@@ -1,9 +1,10 @@
 import './Header.css';
 import { Component } from 'react';
+import Modal from './Modal';
 
 class Header extends Component {
   state = {
-    spreadMenu: false
+    spreadMenu: false,
   }
   componentDidMount = () => {
     document.addEventListener('scroll', function () {
@@ -49,8 +50,7 @@ class Header extends Component {
                 </ul>
               </div>
               <div className="log-box">
-                <span className="log-in">로그인</span>
-                <span className="log-out">로그아웃</span>
+                <Modal />
               </div>
             </div>
           </div>
