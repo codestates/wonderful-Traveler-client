@@ -188,3 +188,36 @@ header {
     color: inherit;
     text-decoration: none;
   }
+  .log-box{
+    width: 300px;
+    height: 100%;
+    position: fixed;
+  }
+  button {
+    cursor: pointer;
+    text-align: center;
+    width: 100px;
+    background-color: transparent;
+    font-size: 1.3rem;
+    float: center;
+    border: none;
+    outline: none;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .Modal {
+    width: 100%;
+    bottom: 0;
+    text-align : center;
+    position: absolute;
+    margin-bottom: 50px;
+  }
+
+  .Modal button:not(.exitButton) {
+      padding: 13px 0px;
+      background: #22c39f;
+      border-radius: 30px;
+      font-size: 18px;
+      color: white;
+  }
