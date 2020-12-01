@@ -1,163 +1,93 @@
-import React, { Component } from "react";
+import React from "react";
+import axios from "axios";
 import "./SignUp.css";
 
-const emailRegex = RegExp(
-  /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
-);
-
-const formValid = ({ formErrors, ...rest }) => {
-  let valid = true;
-
-  // validate form errors being empty
-  Object.values(formErrors).forEach(val => {
-    val.length > 0 && (valid = false);
-  });
-
-  // validate the form was filled out
-  Object.values(rest).forEach(val => {
-    val === null && (valid = false);
-  });
-
-  return valid;
-};
-
-class SignUp extends Component {
+class Signup extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
-      firstName: null,
-      lastName: null,
-      email: null,
-      password: null,
-      formErrors: {
-        firstName: "",
-        lastName: "",
-        email: "",
-        password: ""
-      }
+      email: "",
+      password: "",
+      username: "",
+      confirm: "",
+      error: "",
     };
   }
+  
+  handleInputValue = (key) => (e) => {
+    this.setState({ [key]: e.target.value });
+  };
 
-  handleSubmit = e => {
-    e.preventDefault();
+  handleClose = () => {
+    this.setState({
+      error: "",
+    })
+    this.props.close();
+  }
 
-    if (formValid(this.state)) {
-      console.log(`
-        --SUBMITTING--
-        First Name: ${this.state.firstName}
-        Last Name: ${this.state.lastName}
-        Email: ${this.state.email}
-        Password: ${this.state.password}
-      `);
+  handleSignup = () => {
+    this.setState({ error: ""});
+    for (let key in this.state) {
+      if (key !== 'error' && this.state[key] === "") {
+        this.setState({
+          error: '모든항목을 채워주세요'
+        })
+        return;
+      } 
+      else {
+        this.setState({ error: "" });
+      }
+    }
+    
+    if (this.state.password !== this.state.confirm) {
+      this.setState({
+        error: "모든 항목을 입력해 주십시오"
+      })
     } else {
-      console.error("FORM INVALID - DISPLAY ERROR MESSAGE");
+      this.setState({ error: "" });
+      axios.post("ec2-15-164-38-202.ap-northeast-2.compute.amazonaws.com/signup", {
+        email: this.state.email,
+        password: this.state.password,
+        username: this.state.username
+      })
+        .then(() => {
+          this.props.handleSignupSuccess();
+        })
+        .catch(err =>{
+          this.setState({
+            error: "존재하는 이메일 입니다"
+          })
+        })
     }
-  };
-
-  handleChange = e => {
-    e.preventDefault();
-    const { name, value } = e.target;
-    let formErrors = { ...this.state.formErrors };
-
-    switch (name) {
-      case "firstName":
-        formErrors.firstName =
-          value.length < 3 ? "minimum 3 characaters required" : "";
-        break;
-      case "lastName":
-        formErrors.lastName =
-          value.length < 3 ? "minimum 3 characaters required" : "";
-        break;
-      case "email":
-        formErrors.email = emailRegex.test(value)
-          ? ""
-          : "invalid email address";
-        break;
-      case "password":
-        formErrors.password =
-          value.length < 6 ? "minimum 6 characaters required" : "";
-        break;
-      default:
-        break;
-    }
-
-    this.setState({ formErrors, [name]: value }, () => console.log(this.state));
-  };
+  }
 
   render() {
-    const { formErrors } = this.state;
-
+    const { open } = this.props;
     return (
-      <div className="wrapper">
-        <div className="form-wrapper">
-          <h1>회원가입</h1>
-          <form onSubmit={this.handleSubmit} noValidate>
-            <div className="firstName">
-              <label htmlFor="firstName">First Name</label>
-              <input
-                className={formErrors.firstName.length > 0 ? "error" : null}
-                placeholder="First Name"
-                type="text"
-                name="firstName"
-                noValidate
-                onChange={this.handleChange}
-              />
-              {formErrors.firstName.length > 0 && (
-                <span className="errorMessage">{formErrors.firstName}</span>
-              )}
+      <div>
+        {open ? (
+          <div className="su-modal">
+            <div className="su-signModal">
+              <span className="su-close" onClick={this.handleClose}>
+                x
+                    </span>
+              <div className="su-modalDefault" >
+                <h1>Sign Up</h1>
+                <input className="su-sign-info" type="text" placeholder="email" onChange={this.handleInputValue("email")} />
+                <input className="su-sign-info" type="password" placeholder="password" onChange={this.handleInputValue("password")} />
+                <input className="su-sign-info" type="password" placeholder="confirm password" onChange={this.handleInputValue("confirm")} />
+                <input className="su-sign-info" type="text" placeholder="username" onChange={this.handleInputValue("username")} />
+                <div className="signBtn" >
+                  <div className="sign-up" onClick={this.handleSignup}>회원가입</div>
+                </div>
+                {this.state.error ? <div className="alert-box">{this.state.error}</div> : ''}
+              </div>
+
             </div>
-            <div className="lastName">
-              <label htmlFor="lastName">Last Name</label>
-              <input
-                className={formErrors.lastName.length > 0 ? "error" : null}
-                placeholder="Last Name"
-                type="text"
-                name="lastName"
-                noValidate
-                onChange={this.handleChange}
-              />
-              {formErrors.lastName.length > 0 && (
-                <span className="errorMessage">{formErrors.lastName}</span>
-              )}
-            </div>
-            <div className="email">
-              <label htmlFor="email">Email</label>
-              <input
-                className={formErrors.email.length > 0 ? "error" : null}
-                placeholder="Email"
-                type="email"
-                name="email"
-                noValidate
-                onChange={this.handleChange}
-              />
-              {formErrors.email.length > 0 && (
-                <span className="errorMessage">{formErrors.email}</span>
-              )}
-            </div>
-            <div className="password">
-              <label htmlFor="password">Password</label>
-              <input
-                className={formErrors.password.length > 0 ? "error" : null}
-                placeholder="Password"
-                type="password"
-                name="password"
-                noValidate
-                onChange={this.handleChange}
-              />
-              {formErrors.password.length > 0 && (
-                <span className="errorMessage">{formErrors.password}</span>
-              )}
-            </div>
-            <div className="createAccount">
-              <button type="submit">Create Account</button>
-              {/* <small>Already Have an Account?</small> */}
-            </div>
-          </form>
-        </div>
+          </div>
+        ) : null}
       </div>
     );
   }
 }
-
-export default SignUp;
+export default Signup;

@@ -1,16 +1,19 @@
 import './Header.css';
 import { Component } from 'react';
-import Modal from './Modal';
 
 class Header extends Component {
-  state = {
-    spreadMenu: false,
+  constructor(props){
+    super(props);
+    this.state = {
+      spreadMenu: false,
+    }
   }
+  
   componentDidMount = () => {
     document.addEventListener('scroll', function () {
       var currentScrollValue = document.documentElement.scrollTop;
       let header = document.getElementById("scroll");
-      if (currentScrollValue > 480) {
+      if (currentScrollValue > 300) {
         header.classList.add("add-background");
       } else {
         header.classList.remove("add-background");
@@ -23,7 +26,6 @@ class Header extends Component {
     } else {
       this.setState({ spreadMenu: false })
     }
-    console.log(this.state)
   }
 
   render() {
@@ -51,7 +53,10 @@ class Header extends Component {
                 </ul>
               </div>
               <div className="log-box">
-                <Modal />
+                <div className="Modal">
+                  <button onClick={this.props.openSignin}>로그인</button>
+                  <button onClick={this.props.openSignup}>회원가입</button>
+                </div>
               </div>
             </div>
           </div>

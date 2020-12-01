@@ -1,0 +1,25 @@
+.st-section {
+    position: relative;
+    display: inline-block;
+    background-image: url('../mainpage/first-section.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 300px;
+    font-size: 50px;
+    color: white;
+    line-height: 300px;
+    padding-left: 200px;
+  }
+
+.list-section {
+    position: relative;
+    margin: 0 auto;
+    padding: 0;
+    width: 1000px;
+    height: 1000px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-bottom: 10px double black;
+    vertical-align: middle;
+    padding-top: 30px;
+}
