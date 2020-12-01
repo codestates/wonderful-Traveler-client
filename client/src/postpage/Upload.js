@@ -7,25 +7,22 @@ class Upload extends Component {
         super(props);
         this.state = {
             title: null,
-            textValue: null
+            textValue: ''
         }
     }
    
     handleTitleChange = (e) => {
         this.setState({ title: e.target.value });
-        console.log(this.state);
+        console.log(document.querySelector('.CodeMirror-code'));
     };
-    handleValueChange = (instance) => {
-        this.setState({ textValue: instance.value() });
+    handleValueChange = (event) => {
+        this.setState({ textValue: event.target.value });
     };
 
     handleSubmit = () => {
 
     }
-    getIntance = (instance) => {
-        // You can now store and manipulate the simplemde instance. 
-        instance.togglePreview();
-      }
+
     render(){
         return(
             <div>
@@ -36,7 +33,6 @@ class Upload extends Component {
                     <input className="upload-title" placeholder="title" onChange={this.handleTitleChange}></input>
                     <div>
                         <SimpleMDE className="MDE"
-                        getMdeInstance= { this.getInsance }
                             onChange={this.handleValueChange}
                             value={this.state.textValue} />
                     </div>

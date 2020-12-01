@@ -1,11 +1,15 @@
 import './Header.css';
 import { Component } from 'react';
-import Modal from './Modal';
 
 class Header extends Component {
-  state = {
-    spreadMenu: false,
+  constructor(props){
+    super(props);
+    this.state = {
+      spreadMenu: false,
+    }
   }
+  
+
   componentDidMount = () => {
     document.addEventListener('scroll', function () {
       var currentScrollValue = document.documentElement.scrollTop;
@@ -50,7 +54,10 @@ class Header extends Component {
                 </ul>
               </div>
               <div className="log-box">
-                <Modal />
+                <div className="Modal">
+                  <button onClick={this.props.openSignin}>로그인</button>
+                  <button onClick={this.props.openSignup}>회원가입</button>
+                </div>
               </div>
             </div>
           </div>
