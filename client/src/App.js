@@ -37,7 +37,7 @@ class App extends Component {
     }
   }
 
-  handleSignupSuccess = () => {
+  handleSignUpSuccess = () => {
     this.setState({
       signupOpen: false,
     });
@@ -54,10 +54,10 @@ class App extends Component {
   closeSignin = () => {
     this.setState({ signinOpen: false });
   };
-  openSignup = () => {
+  openSignUp = () => {
     this.setState({ signupOpen: true });
   };
-  closeSignup = () => {
+  closeSignUp = () => {
     this.setState({ signupOpen: false });
   };
 
@@ -66,9 +66,9 @@ class App extends Component {
     return (
       <div>
         <div>
-          <Header openSignin={this.openSignin} openSignup={this.openSignup}/>
+          <Header openSignin={this.openSignin} openSignup={this.openSignUp}/>
         </div>
-          <SignUp open={this.state.signupOpen} close={this.closeSignup}  handleSignupSuccess={this.handleSignupSuccess}/>
+          <SignUp open={this.state.signupOpen} close={this.closeSignUp}  handleSignUpSuccess={this.handleSignUpSuccess}/>
           <SignIn open={this.state.signinOpen} close={this.closeSignin} handleSigninSuccess={this.handleSigninSuccess}/>
         <Route exact path="/" component={Section} />
         <Switch>
@@ -78,6 +78,7 @@ class App extends Component {
           <Route path="/mypage" component={Mypage} userinfo={this.state.userinfo}/>
         </Switch>
         <Footer />
+        <SignUp />
       </div>
     );
   }
