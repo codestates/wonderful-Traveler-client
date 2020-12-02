@@ -15,26 +15,36 @@ header {
   vertical-align: baseline;
   z-index: 2;
 }
-.Logo{
-  font-size: 30px;
+.logo{
+  font-size: 25px;
   position: fixed;
   display: left;
   color: white;
-  margin-top: 10px;
-  margin-left: 10px;
+  margin-top: 5px;
+  margin-left: 5px;
 }
+
+.logoView{
+  width: 90px;
+}
+
+.logoView img {
+  float: left;
+  margin-top: 10px;
+  margin-left: 15px;
+  width: 40%;
+}
+.logoTitle {
+  float: right;
+  line-height: 250%;
+}
+
 :root {
     --primary-color: rgba(37, 37, 37, 0.75);
     --overlay-color: rgba(24, 39, 51 , 0.85);
     --menu-speed: 0.75s;
   }
-  
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
+
   .menu-wrap {
     position: fixed;
     right: 0;
@@ -56,10 +66,10 @@ header {
     top: 0;
     right: 0;
     z-index: 1;
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 40px;
     padding: 1rem;
-    background: var(--primary-color);
+    background: none;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -137,9 +147,12 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
+    /* text-align: center; */
+    /* margin:0;
+    padding:0;   */
   }
   
-  .menu-wrap .menu > div {
+  .menuAll {
     background: var(--overlay-color);
     border-radius: 50%;
     width: 200vw;
@@ -152,6 +165,7 @@ header {
     transition: all 0.4s ease;
   }
   
+  /* menuBar */
   .menu-wrap .menu > div > div {
     text-align: center;
     max-width: 90vw;
@@ -160,6 +174,7 @@ header {
     transition: opacity 0.4s ease;
   }
   
+  /* menuList */
   .menu-wrap .menu > div > div > ul > li {
     position: relative;
     list-style: none;
@@ -170,11 +185,12 @@ header {
     z-index: 5;
   }
   
-  .menu-wrap .menu > div > div > ul > li > a {
-    color: inherit;
+  .menuAbout {
+    color: white;
     text-decoration: none;
     transition: color 0.4s ease;
   }
+  
   .menu-wrap .menu > div > div > ul > ul > li {
     list-style: none;
     color: #fff;
@@ -185,41 +201,41 @@ header {
   }
 
   .menu-wrap .menu > div > div > ul > ul > li > a{
-    color: inherit;
-    text-decoration: none;
-  }
-  .log-box{
-    width: 300px;
-    height: 100%;
-    position: fixed;
-  }
-
-
-  button {
-    cursor: pointer;
-    text-align: center;
-    width: 100px;
-    background-color: transparent;
-    font-size: 1.3rem;
-    float: center;
-    border: none;
-    outline: none;
-    color: #fff;
+    color: white;
     text-decoration: none;
   }
 
-  .Modal {
-    width: 100%;
-    bottom: 0;
-    text-align : center;
-    position: absolute;
-    margin-bottom: 50px;
-  }
+/* Header SignIn & SignUp */
+.log-box{
+  width: 300px;
+  height: 100%;
+  position: fixed;
+}
 
-  .Modal button:not(.exitButton) {
-      padding: 13px 0px;
-      background: #22c39f;
-      border-radius: 30px;
-      font-size: 18px;
-      color: white;
-  }
+.logBox {
+  width: 100%;
+  bottom: 0;
+  text-align : center;
+  position: absolute;
+  margin-bottom: 100px;
+}
+
+.logBox button {
+  border:0;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center; 
+  border: 2px solid #2ecc71;
+  padding: 14px 40px;
+  width: 200px;
+  outline: none;
+  color:white;
+  border-radius: 24px;
+  transition: 0.25s;
+  cursor: pointer;
+}
+
+.logBox button:hover {
+  background:#2ecc71;
+}

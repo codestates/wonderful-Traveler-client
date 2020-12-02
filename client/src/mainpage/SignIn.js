@@ -51,20 +51,16 @@ class SignIn extends React.Component {
   render() {
     const { open } = this.props;
     return (
-      <div>
+      <div className="modal">
         {open ? (
-          <div className="modal">
-            <div className="signModal">
-              <span className="close" onClick={this.handleClose}>
-                X
-              </span>
-              <div className="modalDefault" >
-                <h1>Sign In</h1>
-                <input className="sign-info" type="text" placeholder="E-mail" onChange={this.handleInputValue("email")} />
-                <input className="sign-info" type="password" placeholder="Password" onChange={this.handleInputValue("password")} />
-                <div className="signBtn" >
-                  <div className="login" onClick={this.handleLogin}>로그인</div>
-                </div>
+          <div className="modalBody">
+            <div className="modalInner">
+              <div className="modalText">
+                <h1>Member Login</h1>
+                <input className="signInfo" type="text" placeholder="E-mail" onChange={this.handleInputValue("email")} />
+                <input className="signInfo" type="password" placeholder="Password" onChange={this.handleInputValue("password")} />
+                <button className="signBtn" onClick={this.handleLogin}> JOIN NOW! </button>
+                <button className="exitBtn" onClick={this.handleClose}> Exit </button>
                 {this.state.error ? <div className="alert-box">{this.state.error}</div> : ''}
               </div>
             </div>
@@ -76,3 +72,14 @@ class SignIn extends React.Component {
 }
 
 export default SignIn;
+
+
+
+// {/* <div>
+// {open ? (
+//   <div className="modalBody">
+//     <div className="signModal">
+//       {/* <span className="close" onClick={this.handleClose}>
+//         X
+//       </span> */}   // <div className="modalDefault" >
+//       //   <h1>Sign In</h1> */}
