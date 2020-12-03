@@ -1,7 +1,7 @@
 header {
   position: fixed;
   width: 100%;
-  z-index: 8;
+  z-index: 3;
   height: 60px;
   top: 0;
 }
@@ -15,31 +15,36 @@ header {
   vertical-align: baseline;
   z-index: 2;
 }
-.Logo{
-  font-size: 30px;
+.logo{
+  font-size: 25px;
   position: fixed;
   display: left;
   color: white;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+.logoView{
+  width: 90px;
+}
+.logoView img {
+  float: left;
   margin-top: 10px;
-  margin-left: 10px;
+  margin-left: 15px;
+  width: 40%;
+}
+.logoTitle {
+  float: right;
+  line-height: 250%;
 }
 :root {
     --primary-color: rgba(37, 37, 37, 0.75);
     --overlay-color: rgba(24, 39, 51 , 0.85);
     --menu-speed: 0.75s;
   }
-  
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
   .menu-wrap {
     position: fixed;
     right: 0;
   }
-  
   .menu-wrap .toggler {
     position: absolute;
     float: right;
@@ -50,21 +55,19 @@ header {
     opacity: 0;
     right: 0;
   }
-  
   .menu-wrap .hamburger {
     position: absolute;
     top: 0;
     right: 0;
     z-index: 1;
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 40px;
     padding: 1rem;
-    background: var(--primary-color);
+    background: none;
     display: flex;
     align-items: center;
     justify-content: center;
   }
-  
   .menu-wrap .hamburger > div {
     position: relative;
     flex: none;
@@ -76,7 +79,6 @@ header {
     justify-content: center;
     transition: all 0.4s ease;
   }
-  
   /* Hamburger Lines - Top & Bottom */
   .menu-wrap .hamburger > div::before,
   .menu-wrap .hamburger > div::after {
@@ -88,44 +90,36 @@ header {
     height: 2px;
     background: inherit;
   }
-  
   /* Moves Line Down */
   .menu-wrap .hamburger > div::after {
     top: 10px;
   }
-  
   /* Toggler Animation */
   .menu-wrap .toggler:checked + .hamburger > div {
     transform: rotate(135deg);
   }
-  
   /* Turns Lines Into X */
   .menu-wrap .toggler:checked + .hamburger > div:before,
   .menu-wrap .toggler:checked + .hamburger > div:after {
     top: 0;
     transform: rotate(90deg);
   }
-  
   /* Rotate On Hover When Checked */
   .menu-wrap .toggler:checked:hover + .hamburger > div {
     transform: rotate(225deg);
   }
-  
   /* Show Menu */
   .menu-wrap .toggler:checked ~ .menu {
     visibility: visible;
   }
-  
   .menu-wrap .toggler:checked ~ .menu > div {
     transform: scale(1);
     transition-duration: var(--menu-speed);
   }
-  
   .menu-wrap .toggler:checked ~ .menu > div > div {
     opacity: 1;
     transition:  opacity 0.4s ease 0.4s;
   }
-  
   .menu-wrap .menu {
     position: fixed;
     top: 0;
@@ -137,9 +131,11 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
+    /* text-align: center; */
+    /* margin:0;
+    padding:0;   */
   }
-  
-  .menu-wrap .menu > div {
+  .menuAll {
     background: var(--overlay-color);
     border-radius: 50%;
     width: 200vw;
@@ -149,75 +145,73 @@ header {
     align-items: center;
     justify-content: center;
     transform: scale(0);
-    transition: all 0.4s ease;
+    transition: all 0.2s ease;
   }
-  
+  /* menuBar */
   .menu-wrap .menu > div > div {
+    color: #fff;
     text-align: center;
-    max-width: 90vw;
+    max-width: 100vw;
     max-height: 100vh;
-    opacity: 0;
-    transition: opacity 0.4s ease;
+    transition: opacity 0.3s ease;
   }
-  
-  .menu-wrap .menu > div > div > ul > li {
+  /* menuList */
+  .menuList {
     position: relative;
     list-style: none;
-    color: #fff;
+    color: #2ecc71;
     font-size: 1.5rem;
-    padding: 1rem;
+    padding: 25px;
     cursor: pointer;
     z-index: 5;
+    line-height: 60px;
   }
-  
-  .menu-wrap .menu > div > div > ul > li > a {
-    color: inherit;
+  /* .a {
+    z-index: 6;
+  } */
+  /* .menuItem {
+    color: white;
     text-decoration: none;
     transition: color 0.4s ease;
-  }
-  .menu-wrap .menu > div > div > ul > ul > li {
-    list-style: inside;
-    color: #fff;
+  } */
+  .menuLocal {
+    list-style: none;
+    color: white;
     font-size: 1.3rem;
-    margin-bottom: 5px;
     position: relative;
     z-index: 6;
   }
-
-  .menu-wrap .menu > div > div > ul > ul > li > a{
-    color: inherit;
-    text-decoration: none;
+  .menuLocalItem {
+    padding: 0;
   }
-  .log-box{
-    width: 300px;
-    height: 100%;
-    position: fixed;
-  }
-  button {
-    cursor: pointer;
-    text-align: center;
-    width: 100px;
-    background-color: transparent;
-    font-size: 1.3rem;
-    float: center;
-    border: none;
-    outline: none;
-    color: #fff;
-    text-decoration: none;
-  }
-
-  .Modal {
-    width: 100%;
-    bottom: 0;
-    text-align : center;
-    position: absolute;
-    margin-bottom: 50px;
-  }
-
-  .Modal button:not(.exitButton) {
-      padding: 13px 0px;
-      background: #22c39f;
-      border-radius: 30px;
-      font-size: 18px;
-      color: white;
-  }
+/* Header SignIn & SignUp */
+.log-box{
+  width: 300px;
+  height: 100%;
+  position: fixed;
+}
+.logBox {
+  width: 100%;
+  bottom: 0;
+  text-align : center;
+  position: absolute;
+  margin-bottom: 100px;
+}
+.logBox button {
+  border:0;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center; 
+  border: 2px solid #2ecc71;
+  padding: 14px 40px;
+  width: 200px;
+  outline: none;
+  color:white;
+  border-radius: 24px;
+  transition: 0.25s;
+  cursor: pointer;
+}
+.logBox button:hover {
+  background:#2ecc71;
+}

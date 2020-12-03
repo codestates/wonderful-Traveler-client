@@ -22,4 +22,15 @@
     border-bottom: 10px double black;
     vertical-align: middle;
     padding-top: 30px;
+    align-content: center;
+    
+}
+
+.content-text{
+    width: 90%;
+    margin: 0 auto;
+    padding: 0;
+    position: relative;
+    margin-bottom: 50px;
+    border: solid;
 }

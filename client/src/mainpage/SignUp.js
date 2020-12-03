@@ -25,7 +25,7 @@ class Signup extends React.Component {
     this.props.close();
   }
 
-  handleSignup = () => {
+  handleSignUp = () => {
     this.setState({ error: ""});
     for (let key in this.state) {
       if (key !== 'error' && this.state[key] === "") {
@@ -51,7 +51,7 @@ class Signup extends React.Component {
         username: this.state.username
       })
         .then(() => {
-          this.props.handleSignupSuccess();
+          this.props.handleSignUpSuccess();
         })
         .catch(err =>{
           this.setState({
@@ -64,25 +64,20 @@ class Signup extends React.Component {
   render() {
     const { open } = this.props;
     return (
-      <div>
+        <div className="modalSignUp">
         {open ? (
-          <div className="su-modal">
-            <div className="su-signModal">
-              <span className="su-close" onClick={this.handleClose}>
-                x
-                    </span>
-              <div className="su-modalDefault" >
+          <div className="SignUpBody">
+            <div className="SignUpInner">
+              <div className="SignUpText">
                 <h1>Sign Up</h1>
-                <input className="su-sign-info" type="text" placeholder="email" onChange={this.handleInputValue("email")} />
-                <input className="su-sign-info" type="password" placeholder="password" onChange={this.handleInputValue("password")} />
-                <input className="su-sign-info" type="password" placeholder="confirm password" onChange={this.handleInputValue("confirm")} />
-                <input className="su-sign-info" type="text" placeholder="username" onChange={this.handleInputValue("username")} />
-                <div className="signBtn" >
-                  <div className="sign-up" onClick={this.handleSignup}>회원가입</div>
-                </div>
+                <input className="signUpinfo" type="text" placeholder="Username" onChange={this.handleInputValue("username")} />
+                <input className="signUpinfo" type="text" placeholder="E-mail" onChange={this.handleInputValue("email")} />
+                <input className="signUpinfo" type="password" placeholder="Password" onChange={this.handleInputValue("password")} />
+                <input className="signUpinfo" type="password" placeholder="Confirm Password" onChange={this.handleInputValue("confirm")} />
+                <button className="signUp" onClick={this.handleSignUp}> SignUp </button>
+                <button className="exitBtn" onClick={this.handleClose}> Exit </button>
                 {this.state.error ? <div className="alert-box">{this.state.error}</div> : ''}
               </div>
-
             </div>
           </div>
         ) : null}
@@ -90,4 +85,5 @@ class Signup extends React.Component {
     );
   }
 }
+
 export default Signup;

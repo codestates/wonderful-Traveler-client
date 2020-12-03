@@ -10,12 +10,22 @@ class Upload extends Component {
         this.state = {
             title: null,
             textValue: null,
-            location: null
+            location: null,
+            address: null,
+            user: null,
         }
     }
    
     handleTitleChange = (e) => {
         this.setState({ title: e.target.value });
+    };
+
+    handleLocationChange = (e) => {
+        this.setState({ location: e.target.value });
+    };
+
+    handleAddressChange = (e) => {
+        this.setState({ address: e.target.value });
     };
 
     handleSubmit = () => {
@@ -41,9 +51,15 @@ class Upload extends Component {
                 <section className="upload-section">
                     <input className="upload-title" placeholder="title" onChange={this.handleTitleChange}></input>
                     <div>
-                        <SimpleMDE className="MDE"
-                            onChange={this.handleValueChange}
-                            value={this.state.textValue} />
+                        <SimpleMDE className="MDE" />
+                    </div>
+                    <div>
+                    <select onChange ={this.handleLocationChange}>
+                        <option></option>
+                        <option>서울</option>
+                        <option>경기</option>
+                    </select>
+                    <input onChange={this.handleAddressChange} placeholder="주소"></input>
                     </div>
                     <button className="submit-button" onClick={this.handleSubmit}>버튼</button>
                     <div>
@@ -51,6 +67,7 @@ class Upload extends Component {
                         return ReactHtmlParser(v)
                     })}</div>
                     : null}
+
                     </div>
                 </section>
             </div>

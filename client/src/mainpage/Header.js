@@ -1,6 +1,6 @@
 import './Header.css';
 import { Component } from 'react';
-
+// import { Link } from "react-router-dom";
 class Header extends Component {
   constructor(props){
     super(props);
@@ -8,8 +8,6 @@ class Header extends Component {
       spreadMenu: false,
     }
   }
-  
-
   componentDidMount = () => {
     document.addEventListener('scroll', function () {
       var currentScrollValue = document.documentElement.scrollTop;
@@ -28,12 +26,14 @@ class Header extends Component {
       this.setState({ spreadMenu: false })
     }
   }
-
   render() {
     return (
       <header id="scroll" className="smooth">
         <a href="/">
-          <div className="Logo">차박의 민족</div>
+          <div className="logo">
+            <img src="../../public/logoView.png" className="logoView" alt="logoView"></img> 
+            <div className="logoTitle"> Wonderful Traveler </div>
+            </div>
         </a>
         <div className="menu-wrap">
           <input type="checkbox" className="toggler" />
@@ -41,20 +41,31 @@ class Header extends Component {
             <div></div>
           </div>
           <div className="menu">
-            <div>
-              <div>
-                <ul>
-                  <li><a href="/info">차박이란</a></li>
-                  <li><div onClick={this.clickList}>추천장소</div></li>
+            <div className="menuAll">
+              <div className="menuBar">
+                <ul className="menuList">
+                  <li>
+                    <a href="/info"> About </a>
+                  </li>
+                  <li>
+                    <div onClick={this.clickList}>추천장소</div>
+                  </li>
                   {this.state.spreadMenu ?
-                    <ul>
-                      <li><a href="/post/seoul">서울</a></li>
-                      <li><a href="/post/gyeonggi">경기</a></li>
-                    </ul> : null}
+                    <div className="menuLocal">
+                      <li className="menuLocalItem">
+                        <a href="/posts/seoul"> 서울 </a>
+                      </li>
+                      <li className="menuLocalItem">
+                        <a href="/posts/gyeonggi"> 경기 </a>
+                      </li>
+                      <li className="menuLocalItem">
+                        <a href="/posts/dejeon"> 대전 </a>
+                      </li>
+                    </div> : null}
                 </ul>
               </div>
               <div className="log-box">
-                <div className="Modal">
+                <div className="logBox">
                   <button onClick={this.props.openSignin}>로그인</button>
                   <button onClick={this.props.openSignup}>회원가입</button>
                 </div>
@@ -66,5 +77,4 @@ class Header extends Component {
     );
   }
 }
-
 export default Header;
