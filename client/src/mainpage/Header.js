@@ -1,6 +1,6 @@
 import './Header.css';
 import { Component } from 'react';
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 class Header extends Component {
   constructor(props){
@@ -34,7 +34,7 @@ class Header extends Component {
       <header id="scroll" className="smooth">
         <a href="/">
           <div className="logo">
-            <img src="./logoView.png" className="logoView" alt="logoView"></img> 
+            <img src="../logoView.png" className="logoView" alt="logoView"></img> 
             <div className="logoTitle"> Wonderful Traveler </div>
             </div>
         </a>
@@ -47,21 +47,24 @@ class Header extends Component {
             <div className="menuAll">
               <div className="menuBar">
                 <ul className="menuList">
-                  <li className="menuAbout">
-                    <Link to="/info"> 차박이란? </Link>
+                  <li>
+                    <a href="/info"> About </a>
                   </li>
                   <li>
                     <div onClick={this.clickList}>추천장소</div>
                   </li>
                   {this.state.spreadMenu ?
-                    <ul className="menuLocal">
-                      <li>
-                        <Link to="/post/seoul"> 서울 </Link>
+                    <div className="menuLocal">
+                      <li className="menuLocalItem">
+                        <a href="/post/seoul"> 서울 </a>
                       </li>
-                      <li>
-                        <Link to="/post/gyeonggi"> 경기 </Link>
+                      <li className="menuLocalItem">
+                        <a href="/post/gyeonggi"> 경기 </a>
                       </li>
-                    </ul> : null}
+                      <li className="menuLocalItem">
+                        <a href="/post/dejeon"> 대전 </a>
+                      </li>
+                    </div> : null}
                 </ul>
               </div>
               <div className="log-box">
