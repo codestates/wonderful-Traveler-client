@@ -31,7 +31,7 @@ class Header extends Component {
       <header id="scroll" className="smooth">
         <a href="/">
           <div className="logo">
-            <img src="../../public/logoView.png" className="logoView" alt="logoView"></img> 
+            <img src="../logoView.png" className="logoView" alt="logoView"></img> 
             <div className="logoTitle"> Wonderful Traveler </div>
             </div>
         </a>
@@ -53,13 +53,13 @@ class Header extends Component {
                   {this.state.spreadMenu ?
                     <div className="menuLocal">
                       <li className="menuLocalItem">
-                        <a href="/posts/seoul"> 서울 </a>
+                        <a href="/post/seoul"> 서울 </a>
                       </li>
                       <li className="menuLocalItem">
-                        <a href="/posts/gyeonggi"> 경기 </a>
+                        <a href="/post/gyeonggi"> 경기 </a>
                       </li>
                       <li className="menuLocalItem">
-                        <a href="/posts/dejeon"> 대전 </a>
+                        <a href="/post/dejeon"> 대전 </a>
                       </li>
                     </div> : null}
                 </ul>
