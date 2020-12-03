@@ -23,3 +23,12 @@
     vertical-align: middle;
     padding-top: 30px;
 }
+
+.post-list{
+  width: 30%;
+  height: 300px;
+  float: left;
+  border: solid;
+  margin-left: 20px;
+  margin-bottom: 40px;
+}

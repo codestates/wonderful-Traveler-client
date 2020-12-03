@@ -28,11 +28,9 @@ a {
   margin-top: 5px;
   margin-left: 5px;
 }
-
 .logoView{
   width: 90px;
 }
-
 .logoView img {
   float: left;
   margin-top: 10px;
@@ -43,18 +41,15 @@ a {
   float: right;
   line-height: 250%;
 }
-
 :root {
     --primary-color: rgba(37, 37, 37, 0.75);
     --overlay-color: rgba(24, 39, 51 , 0.85);
     --menu-speed: 0.75s;
   }
-
   .menu-wrap {
     position: fixed;
     right: 0;
   }
-  
   .menu-wrap .toggler {
     position: absolute;
     float: right;
@@ -65,7 +60,6 @@ a {
     opacity: 0;
     right: 0;
   }
-  
   .menu-wrap .hamburger {
     position: absolute;
     top: 0;
@@ -79,7 +73,6 @@ a {
     align-items: center;
     justify-content: center;
   }
-  
   .menu-wrap .hamburger > div {
     position: relative;
     flex: none;
@@ -91,7 +84,6 @@ a {
     justify-content: center;
     transition: all 0.4s ease;
   }
-  
   /* Hamburger Lines - Top & Bottom */
   .menu-wrap .hamburger > div::before,
   .menu-wrap .hamburger > div::after {
@@ -103,44 +95,36 @@ a {
     height: 2px;
     background: inherit;
   }
-  
   /* Moves Line Down */
   .menu-wrap .hamburger > div::after {
     top: 10px;
   }
-  
   /* Toggler Animation */
   .menu-wrap .toggler:checked + .hamburger > div {
     transform: rotate(135deg);
   }
-  
   /* Turns Lines Into X */
   .menu-wrap .toggler:checked + .hamburger > div:before,
   .menu-wrap .toggler:checked + .hamburger > div:after {
     top: 0;
     transform: rotate(90deg);
   }
-  
   /* Rotate On Hover When Checked */
   .menu-wrap .toggler:checked:hover + .hamburger > div {
     transform: rotate(225deg);
   }
-  
   /* Show Menu */
   .menu-wrap .toggler:checked ~ .menu {
     visibility: visible;
   }
-  
   .menu-wrap .toggler:checked ~ .menu > div {
     transform: scale(1);
     transition-duration: var(--menu-speed);
   }
-  
   .menu-wrap .toggler:checked ~ .menu > div > div {
     opacity: 1;
     transition:  opacity 0.4s ease 0.4s;
   }
-  
   .menu-wrap .menu {
     position: fixed;
     top: 0;
@@ -156,7 +140,6 @@ a {
     /* margin:0;
     padding:0;   */
   }
-  
   .menuAll {
     background: var(--overlay-color);
     border-radius: 50%;
@@ -169,7 +152,6 @@ a {
     transform: scale(0);
     transition: all 0.2s ease;
   }
-  
   /* menuBar */
   .menu-wrap .menu > div > div {
     color: #fff;
@@ -178,7 +160,6 @@ a {
     max-height: 100vh;
     transition: opacity 0.3s ease;
   }
-  
   /* menuList */
   .menuList {
     position: relative;
@@ -207,18 +188,15 @@ a {
     position: relative;
     z-index: 6;
   }
-
   .menuLocalItem {
     padding: 0;
   }
-
 /* Header SignIn & SignUp */
 .log-box{
   width: 300px;
   height: 100%;
   position: fixed;
 }
-
 .logBox {
   width: 100%;
   bottom: 0;
@@ -226,7 +204,6 @@ a {
   position: absolute;
   margin-bottom: 100px;
 }
-
 .logBox button {
   border:0;
   background: none;
@@ -242,7 +219,6 @@ a {
   transition: 0.25s;
   cursor: pointer;
 }
-
 .logBox button:hover {
   background:#2ecc71;
 }

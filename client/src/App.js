@@ -2,6 +2,7 @@ import { Component } from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom';
 import cookie from 'react-cookies';
 import Posts from './postpage/Posts';
+import Postinfo from './postpage/Postinfo';
 import Header from "./mainpage/Header";
 import Footer from './mainpage/Footer';
 import Section from './mainpage/Section';
@@ -62,7 +63,6 @@ class App extends Component {
   };
 
   render() {
-    console.log(this.state)
     return (
       <div>
         <div>
@@ -72,9 +72,10 @@ class App extends Component {
           <SignIn open={this.state.signinOpen} close={this.closeSignin} handleSigninSuccess={this.handleSigninSuccess}/>
         <Route exact path="/" component={Section} />
         <Switch>
-          <Route path="/post/:id" component={Posts} />
+          <Route path="/posts/:id" component={Posts} />
           <Route path="/info" component={Info} />
           <Route path="/upload" component={Upload} />
+          <Route path="/post/info/:id" component={Postinfo} />
           <Route path="/mypage" component={Mypage} userinfo={this.state.userinfo}/>
         </Switch>
         <Footer />

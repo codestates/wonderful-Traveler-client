@@ -1,7 +1,6 @@
 import './Header.css';
 import { Component } from 'react';
 // import { Link } from "react-router-dom";
-
 class Header extends Component {
   constructor(props){
     super(props);
@@ -9,7 +8,6 @@ class Header extends Component {
       spreadMenu: false,
     }
   }
-  
   componentDidMount = () => {
     document.addEventListener('scroll', function () {
       var currentScrollValue = document.documentElement.scrollTop;
@@ -28,7 +26,6 @@ class Header extends Component {
       this.setState({ spreadMenu: false })
     }
   }
-
   render() {
     return (
       <header id="scroll" className="smooth">
@@ -80,5 +77,4 @@ class Header extends Component {
     );
   }
 }
-
 export default Header;
