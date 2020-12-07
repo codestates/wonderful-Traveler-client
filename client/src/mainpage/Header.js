@@ -61,11 +61,17 @@ class Header extends Component {
                       <li className="menuLocalItem">
                         <a href="/post/dejeon"> 대전 </a>
                       </li>
+                      <li className="menuLocalItem">
+                        <a href="/post/dejeon"> 대구 </a>
+                      </li>
+                      <li className="menuLocalItem">
+                        <a href="/post/dejeon"> 부산 </a>
+                      </li>
                     </div> : null}
                 </ul>
               </div>
-              <div className="log-box">
-                <div className="logBox">
+              <div className="logBox">
+                <div className="logInBox">
                   <button onClick={this.props.openSignin}>로그인</button>
                   <button onClick={this.props.openSignup}>회원가입</button>
                 </div>

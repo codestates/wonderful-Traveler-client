@@ -1,3 +1,4 @@
+/* Header Global */
 header {
   position: fixed;
   width: 100%;
@@ -10,6 +11,15 @@ a {
   text-decoration: none;
   color: #2ecc71;
 }
+
+/* Header Hamburger  */
+:root {
+  --primary-color: rgba(37, 37, 37, 0.75);
+  --overlay-color: rgba(24, 39, 51 , 0.85);
+  --menu-speed: 0.75s;
+}
+
+/* Header Hamburger onClick change Background */
 .add-background {
   background-color: rgba(0, 0, 0, 0.4);
 }
@@ -20,6 +30,8 @@ a {
   vertical-align: baseline;
   z-index: 2;
 }
+
+/* Header Logo */
 .logo{
   font-size: 25px;
   position: fixed;
@@ -41,16 +53,14 @@ a {
   float: right;
   line-height: 250%;
 }
-:root {
-    --primary-color: rgba(37, 37, 37, 0.75);
-    --overlay-color: rgba(24, 39, 51 , 0.85);
-    --menu-speed: 0.75s;
-  }
-  .menu-wrap {
+
+/* Menu */
+.menu-wrap {
     position: fixed;
     right: 0;
-  }
-  .menu-wrap .toggler {
+}
+
+.menu-wrap .toggler {
     position: absolute;
     float: right;
     z-index: 2;
@@ -59,8 +69,9 @@ a {
     height: 50px;
     opacity: 0;
     right: 0;
-  }
-  .menu-wrap .hamburger {
+}
+
+.menu-wrap .hamburger {
     position: absolute;
     top: 0;
     right: 0;
@@ -72,8 +83,9 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-  .menu-wrap .hamburger > div {
+}
+
+.menu-wrap .hamburger > div {
     position: relative;
     flex: none;
     width: 100%;
@@ -83,8 +95,9 @@ a {
     align-items: center;
     justify-content: center;
     transition: all 0.4s ease;
-  }
-  /* Hamburger Lines - Top & Bottom */
+}
+
+/* Hamburger Lines - Top & Bottom */
   .menu-wrap .hamburger > div::before,
   .menu-wrap .hamburger > div::after {
     content: '';
@@ -94,52 +107,57 @@ a {
     width: 100%;
     height: 2px;
     background: inherit;
-  }
-  /* Moves Line Down */
-  .menu-wrap .hamburger > div::after {
+}
+
+/* Moves Line Down */
+.menu-wrap .hamburger > div::after {
     top: 10px;
-  }
-  /* Toggler Animation */
+}
+
+/* Toggler Animation */
   .menu-wrap .toggler:checked + .hamburger > div {
     transform: rotate(135deg);
-  }
-  /* Turns Lines Into X */
+}
+
+/* Turns Lines Into X */
   .menu-wrap .toggler:checked + .hamburger > div:before,
   .menu-wrap .toggler:checked + .hamburger > div:after {
     top: 0;
     transform: rotate(90deg);
-  }
-  /* Rotate On Hover When Checked */
+}
+
+/* Rotate On Hover When Checked */
   .menu-wrap .toggler:checked:hover + .hamburger > div {
     transform: rotate(225deg);
-  }
-  /* Show Menu */
+}
+
+/* Show Menu */
   .menu-wrap .toggler:checked ~ .menu {
     visibility: visible;
-  }
+}
+
   .menu-wrap .toggler:checked ~ .menu > div {
     transform: scale(1);
     transition-duration: var(--menu-speed);
-  }
+}
+
   .menu-wrap .toggler:checked ~ .menu > div > div {
     opacity: 1;
     transition:  opacity 0.4s ease 0.4s;
-  }
+}
+
   .menu-wrap .menu {
     position: fixed;
     top: 0;
     right: 0;
     width: 300px;
     height: 100%;
-    visibility: hidden;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    /* text-align: center; */
-    /* margin:0;
-    padding:0;   */
-  }
+}
+
   .menuAll {
     background: var(--overlay-color);
     border-radius: 50%;
@@ -152,7 +170,8 @@ a {
     transform: scale(0);
     transition: all 0.2s ease;
   }
-  /* menuBar */
+
+/* menuBar */
   .menu-wrap .menu > div > div {
     color: #fff;
     text-align: center;
@@ -160,7 +179,8 @@ a {
     max-height: 100vh;
     transition: opacity 0.3s ease;
   }
-  /* menuList */
+
+/* MenuList (line-height: 150%) */
   .menuList {
     position: relative;
     list-style: none;
@@ -169,41 +189,38 @@ a {
     padding: 25px;
     cursor: pointer;
     z-index: 5;
-    line-height: 60px;
-  }
-  
-  /* .a {
-    z-index: 6;
-  } */
-  /* .menuItem {
-    color: white;
-    text-decoration: none;
-    transition: color 0.4s ease;
-  } */
-  
+    line-height: 150%;
+}
+
+/* MenuLocal (line-height: 130%) */
   .menuLocal {
     list-style: none;
-    color: white;
     font-size: 1.3rem;
     position: relative;
     z-index: 6;
-  }
+    line-height: 130%;
+}
+
+
   .menuLocalItem {
     padding: 0;
-  }
+}
+
 /* Header SignIn & SignUp */
-.log-box{
+.logBox{
   width: 300px;
   height: 100%;
   position: fixed;
 }
-.logBox {
+
+.logInBox {
   width: 100%;
   bottom: 0;
   text-align : center;
   position: absolute;
   margin-bottom: 100px;
 }
+
 .logBox button {
   border:0;
   background: none;
@@ -219,6 +236,7 @@ a {
   transition: 0.25s;
   cursor: pointer;
 }
+
 .logBox button:hover {
   background:#2ecc71;
 }
