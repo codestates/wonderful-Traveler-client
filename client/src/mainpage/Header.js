@@ -53,13 +53,13 @@ class Header extends Component {
                   {this.state.spreadMenu ?
                     <div className="menuLocal">
                       <li className="menuLocalItem">
-                        <a href="/post/seoul"> 서울 </a>
+                        <a href="/posts/seoul"> 서울 </a>
                       </li>
                       <li className="menuLocalItem">
-                        <a href="/post/gyeonggi"> 경기 </a>
+                        <a href="/posts/gyeonggi"> 경기 </a>
                       </li>
                       <li className="menuLocalItem">
-                        <a href="/post/dejeon"> 대전 </a>
+                        <a href="/posts/dejeon"> 대전 </a>
                       </li>
                     </div> : null}
                 </ul>
