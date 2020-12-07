@@ -13,9 +13,7 @@ class Postinfo extends Component {
                 </section>
                 <section className="info-section">
                     <div className="content-text">
-                        {this.props.location.state.text ? <div>{this.props.location.state.text.map(v => {
-                            return ReactHtmlParser(v)
-                        })}</div> : null}
+                        {this.props.location.state.text ? <div>{ReactHtmlParser(this.props.location.state.text)}</div> : null}
                     </div>
                     <div>
                         like: {this.props.location.state.like}

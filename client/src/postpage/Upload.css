@@ -23,6 +23,18 @@
     vertical-align: middle;
     padding-top: 30px;
 }
+#quill {
+    height: 500px;
+    margin-bottom: 50px;
+}
+.ql-container {
+    overflow: scroll;
+}
+
+.ql-video {
+    width: 720px;
+    height: 400px;
+}
 
 .upload-title {
     width: 100%;

@@ -2,17 +2,7 @@ export const fakedata = [
     {
         id: 1,
         title: "자신의 역할",
-        textValue: [ "<p>​</p>"
-        ,"<p><Details><summary>백재영</summary></p>"
-        ,"<ul><li>Position: Front-End</li></ul>"
-        ,"<ul><li>Stack: React</li></ul>"
-        ,"<ul><li>Contributions</li></ul>"
-        ,"<ul><li>Basic</li></ul>"
-        , "<p>&nbsp;  - 아이디어 기획</p>"
-        ,"<ul><li>Front</li></ul>"
-        ,"<p>&nbsp;  - 공란</p>"
-        ,"<p></Details></p>"
-        ,"<p>​</p>"],
+        textValue: '<p><br></p><h1><span class="ql-size-huge ql-font-monospace">안녕하세요</span></h1>',
         location: "서울",
         address: "강동구 상일동",
         user: null,
@@ -22,12 +12,7 @@ export const fakedata = [
     {
         id: 2,
         title: "자신의",
-        textValue: [ "<p><img src='https://i.ibb.co/SrpTKPV/logo512.png' alt='' /></p>"
-        ,"<p>​</p>"
-        ,"<h1 id=''>하이요</h1>"
-        , "<p>​</p>"
-        ,"<p>안녕하세요</p>"
-        , "<p>백재영 입니다</p>" ],
+        textValue: '<p>asddddd</p><p>yeap</p><p><img src="https://i.ibb.co/Lk3hjrL/logo192.png"></p><h2><span class="ql-size-huge ql-font-serif">a thigasdc</span></h2><h1><span class="ql-size-huge ql-font-monospace">안녕하세요</span></h1>',
         location: "서울",
         address: "강동구 상일동",
         user: null,
@@ -37,7 +22,7 @@ export const fakedata = [
     {
         id: 3,
         title: "자신의",
-        textValue: [ "<p>​</p>"],
+        textValue: "<p>​</p>",
         location: "경기도",
         address: "강동구 상일동",
         user: null,
@@ -47,7 +32,7 @@ export const fakedata = [
     {
         id: 6,
         title: "자신의 aaaa",
-        textValue: [ "<p>​</p>"],
+        textValue: "<p>​</p>",
         location: "서울",
         address: "강동구 상일동",
         user: null,
