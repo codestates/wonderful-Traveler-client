@@ -2,7 +2,7 @@ import './Posts.css';
 import { Component } from 'react';
 import { fakedata } from './fakedata';
 import Postlist from "./Postlist";
-import Fillter from "./Fillter";
+import Filter from "./Filter";
 
 class Posts extends Component {
     state = {
@@ -20,20 +20,20 @@ class Posts extends Component {
         }
     }
 
-    ClickFillterLike = () => {
+    ClickFilterLike = () => {
         if (this.state.postdata) {
             let arr = this.state.postdata.sort((a, b) => b.like - a.like)
             this.setState({ postdata: arr, showdata: arr.slice(0,9), number: 9 })
         }
     }
-    ClickFillterRecent = () => {
+    ClickFilterRecent = () => {
         if (this.state.postdata) {
             let arr = this.state.postdata.sort((a, b) => b.id - a.id)
             this.setState({ postdata: arr, showdata: arr.slice(0,9), number: 9 })
         }
     }
 
-    ClickFillterLocation = () => {
+    ClickFilterLocation = () => {
         let arr = [];
         for(let i =0; i <this.state.saveAlldata.length; i++){
             if(this.state.saveAlldata[i].address.indexOf(this.state.location) !== -1){
@@ -43,7 +43,7 @@ class Posts extends Component {
         this.setState({postdata: arr, showdata: arr.slice(0, 9), number: 9, resultLoc: document.querySelector(".input-box").value})
     }
 
-    ClickFillterList =() => {
+    ClickFilterList =() => {
         this.setState({list: !this.state.list})
     }
     ClickShowMore = () => {
@@ -73,12 +73,12 @@ class Posts extends Component {
                             {this.state.resultLoc.length === 0 ? '전국' : this.state.resultLoc}에서의 차박 장소
                         </div>
                         <div>
-                        <Fillter
-                            ClickFillterLike={this.ClickFillterLike}
-                            ClickFillterRecent={this.ClickFillterRecent}
-                            ClickFillterList={this.ClickFillterList}
+                        <Filter
+                            ClickFilterLike={this.ClickFilterLike}
+                            ClickFilterRecent={this.ClickFilterRecent}
+                            ClickFilterList={this.ClickFilterList}
                             handleInputChange={this.handleInputChange}
-                            ClickFillterLocation={this.ClickFillterLocation}
+                            ClickFilterLocation={this.ClickFilterLocation}
                             state={this.state} />
                         </div>
                     </div>
