@@ -5,6 +5,7 @@ import { IMGBB_API_KEY } from '../config/config';
 import ReactQuill, { Quill } from 'react-quill';
 import { ImageUpload } from 'quill-image-upload';
 import 'react-quill/dist/quill.snow.css';
+import Postcode from './Postcode';
 
 Quill.register('modules/imageUpload', ImageUpload);
 
@@ -17,20 +18,13 @@ class Upload extends Component {
             location: null,
             address: null,
             thumbnail: '',
-            user: null
+            user: null,
+            open: false
         }
     }
 
     handleTitleChange = (e) => {
         this.setState({ title: e.target.value });
-    };
-
-    handleLocationChange = (e) => {
-        this.setState({ location: e.target.value });
-    };
-
-    handleAddressChange = (e) => {
-        this.setState({ address: e.target.value });
     };
 
     handleSubmit = () => {
@@ -47,7 +41,9 @@ class Upload extends Component {
         let front = text.slice(num);
         let end = front.indexOf('>');
         let thumbnail = front.slice(10, end - 1);
-        this.setState({ thumbnail: thumbnail })
+        let address = document.querySelector('#address').value;
+        let location = address.split(' ');
+        this.setState({ thumbnail: thumbnail, address: address, location: location[0]})
     }
 
     imageHandler() {
@@ -77,6 +73,9 @@ class Upload extends Component {
         };
     }
 
+    modalClose = () => {
+        this.setState({open: false})
+    }
     render() {
         console.log(this.state)
         return (
@@ -114,12 +113,9 @@ class Upload extends Component {
                         </div>
                     </div>
                     <div>
-                        <select onChange={this.handleLocationChange}>
-                            <option></option>
-                            <option>서울</option>
-                            <option>경기</option>
-                        </select>
-                        <input onChange={this.handleAddressChange} placeholder="주소"></input>
+                        <input id='address' type='text' placeholder="주소" readOnly></input>
+                        <button onClick={()=>{this.setState({open:true})}}>주소찾기</button>
+                        <Postcode open={this.state.open} close ={this.modalClose}/>
                     </div>
                     <button className="submit-button" onClick={this.handleSubmit}>버튼</button>
                     <div>

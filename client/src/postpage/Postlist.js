@@ -9,7 +9,7 @@ class Postlist extends Component {
     // }
     render() {
         return (
-            <div>
+            <div id='make-hover'>
                 <Link to={{
                     pathname: "/post/info/" + this.props.postdata.id,
                     state: {
@@ -21,12 +21,34 @@ class Postlist extends Component {
                         like: this.props.postdata.like
                     },
                 }}>
-                    <img className="thumbnail" src={this.props.postdata.thumbnail}  alt="img"/>
-                    <div className="infomation">
-                        <div>좋아요: {this.props.postdata.like}</div>
-                        <div>지역: {this.props.postdata.location}</div>
-                        <div>{this.props.postdata.title}</div>
-                    </div>
+                    {this.props.list ?
+                        <div>
+                            <div className="post-lists">
+                                <div>
+                                <div className="title">{this.props.postdata.title}</div>
+                                </div>
+                                <div>
+                                <div className="location">{this.props.postdata.location + ' ' + this.props.postdata.address}</div>
+                                </div>
+                            </div>
+                            <div className="post-user">
+                                <div>
+                                <div className="user">{this.props.postdata.user}</div>
+                                </div>
+                                <div>
+                                <div className="create-at">{this.props.postdata.create_at}</div>
+                                </div>
+                            </div>
+                        </div> :
+                        <div className="postlist">
+                            <div className="thumbnail-div">
+                                <img className="thumbnail" src={this.props.postdata.thumbnail} alt="img" />
+                            </div>
+                            <div className="infomation">
+                                <div className="title">{this.props.postdata.title}</div>
+                                <div className="location">{this.props.postdata.location + ' ' + this.props.postdata.address}</div>
+                            </div>
+                        </div>}
                 </Link>
 
             </div>
