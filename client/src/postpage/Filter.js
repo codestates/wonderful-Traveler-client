@@ -1,7 +1,7 @@
-import './Fillter.css';
+import './Filter.css';
 import React from 'react';
 
-const Fillter = (props) => {
+const Filter = (props) => {
     let recommand = [];
     let recommandLocation = [];
     if (props.state.saveAlldata !== null) {
@@ -18,7 +18,7 @@ const Fillter = (props) => {
     let rec = [...new Set(recommandLocation)].slice(0, 5);
     console.log(rec);
     return (
-        <div className="fillter">
+        <div className="Filter">
             <div className="form-control">
             <input
                 className="input-box"
@@ -27,7 +27,7 @@ const Fillter = (props) => {
                 onChange={props.handleInputChange}
             />
             <div>
-                <button className="loc-button"onClick={props.ClickFillterLocation}>검색</button>
+                <button className="loc-button"onClick={props.ClickFilterLocation}>검색</button>
             </div>
             </div>
             <div className="recommand">
@@ -36,13 +36,13 @@ const Fillter = (props) => {
                     <div key={index} className="map-location"
                     onClick={()=>{
                         document.querySelector(".input-box").value = location;
-                        props.ClickFillterLocation();
+                        props.ClickFilterLocation();
                     }}>{location}</div>)) : null}
             </div>
-            <button className="fillter-button" onClick={props.ClickFillterList}>{props.state.list ? '사진' : '리스트'}</button>
-            <button className="fillter-button" onClick={props.ClickFillterRecent}>최신순</button>
-            <button className="fillter-button" onClick={props.ClickFillterLike}>좋아요순</button>
+            <button className="Filter-button" onClick={props.ClickFilterList}>{props.state.list ? '사진' : '리스트'}</button>
+            <button className="Filter-button" onClick={props.ClickFilterRecent}>최신순</button>
+            <button className="Filter-button" onClick={props.ClickFilterLike}>좋아요순</button>
         </div>
     )
 }
-export default Fillter
+export default Filter
