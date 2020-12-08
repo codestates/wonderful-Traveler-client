@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&display=swap');
+
 .st-section {
     position: relative;
     display: inline-block;
@@ -17,18 +19,64 @@
     margin: 0 auto;
     padding: 0;
     width: 1000px;
-    height: 1000px;
-    background-color: rgba(0, 0, 0, 0.4);
+    height: auto;
     border-bottom: 10px double black;
     vertical-align: middle;
     padding-top: 30px;
+    overflow: auto;
+}
+.map-post {
+  height: auto;
+  overflow: auto;
+  position: relative;
+  width: 100%;
+}
+.number-posts {
+  font-family: 'Nanum Gothic', sans-serif;
+  font-size: 16px;
+  margin-bottom: 15px;
+  color: rgba(0, 0, 0, 0.6);
 }
 
-.post-list{
-  width: 30%;
-  height: 300px;
+.location-posts {
+  font-family: 'Nanum Gothic', sans-serif;
+  font-size: 40px;
+  color: black;
+}
+.show-div {
+  width: 100%;
+  bottom: 0;
+  position: relative;
+  float: right;
+}
+.show-button {
+  cursor: pointer;
+  text-align: center;
+  border: 1px solid rgb(176, 176, 176);
+  background-color: rgb(255, 255, 255);
+  outline: none;
+  border-radius: 30px;
+  color: rgb(34, 34, 34);
+  padding: 8px 16px;
+  font-size: 16px;
+  line-height: 16px;
+  margin-left: 8px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  float: right;
+}
+.upload-button {
+  cursor: pointer;
+  text-align: center;
+  border: 1px solid rgb(176, 176, 176);
+  background-color: rgb(255, 255, 255);
+  outline: none;
+  color: rgb(34, 34, 34);
+  padding: 8px 16px;
+  font-size: 16px;
+  line-height: 16px;
+  margin-left: 8px;
+  margin-bottom: 15px;
+  margin-top: 15px;
   float: left;
-  border: solid;
-  margin-left: 20px;
-  margin-bottom: 40px;
 }

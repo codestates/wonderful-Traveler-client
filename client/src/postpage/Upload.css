@@ -27,6 +27,11 @@
     height: 500px;
     margin-bottom: 50px;
 }
+
+#address {
+    width: 300px;
+}
+
 .ql-container {
     overflow: scroll;
 }

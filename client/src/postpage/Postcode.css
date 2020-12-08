@@ -1,0 +1,32 @@
+.modal-window {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.3);   
+    z-index: 5;  
+}
+.signModal {
+    width: 450px;
+    height: 500px;
+    position: relative;
+    box-sizing: border-box;
+    margin: 100px auto;
+    padding: 20px;
+    background: #fff; 
+}
+.close {
+    float: right;
+    font-size: 25px;
+    cursor: pointer;
+}
+.modalDefault {
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
