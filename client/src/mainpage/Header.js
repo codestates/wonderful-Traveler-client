@@ -31,8 +31,8 @@ class Header extends Component {
       <header id="scroll" className="smooth">
         <a href="/">
           <div className="logo">
-            <img src="../logoView.png" className="logoView" alt="logoView"></img> 
-            <div className="logoTitle"> Wonderful Traveler </div>
+            {/* <img src="../logoView.png" className="logoView" alt="logoView"></img>  */}
+            <div className="logoTitle">WONDERFUL TRAVELER</div>
             </div>
         </a>
         <div className="menu-wrap">
