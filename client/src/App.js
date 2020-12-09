@@ -1,6 +1,5 @@
 import { Component } from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom';
-import cookie from 'react-cookies';
 import Posts from './postpage/Posts';
 import Postinfo from './postpage/Postinfo';
 import Header from "./mainpage/Header";
@@ -13,7 +12,6 @@ import SignUp from './mainpage/SignUp';
 import Mypage from './mypage/Mypage';
 import axios from 'axios';
 import './App.css';
-const token = cookie.load('token');
 
 class App extends Component {
   state={
@@ -23,19 +21,16 @@ class App extends Component {
     signupOpen: false
   }
   componentDidMount = () => {
-    if(token) {
-      axios.get('ec2-15-164-38-202.ap-northeast-2.compute.amazonaws.com/user/info', 
-      { headers: {'token': token}, 
-      withCredentials: true }
-      )
-      .then((result)=>{
-          this.setState({
-          isLogin: true,
-          userinfo: result.data
-        })
-        console.log(result.data)
-      })
-    }
+      // axios.get('ec2-15-164-38-202.ap-northeast-2.compute.amazonaws.com/user/info', 
+      // { withCredentials: true }
+      // )
+      // .then((result)=>{
+      //     this.setState({
+      //     isLogin: true,
+      //     userinfo: result.data
+      //   })
+      //   console.log(result.data)
+      // })
   }
 
   handleSignUpSuccess = () => {
@@ -72,7 +67,7 @@ class App extends Component {
           <SignIn open={this.state.signinOpen} close={this.closeSignin} handleSigninSuccess={this.handleSigninSuccess}/>
         <Route exact path="/" component={Section} />
         <Switch>
-          <Route path="/posts/:id" component={Posts} />
+          <Route path="/posts" component={Posts} />
           <Route path="/info" component={Info} />
           <Route path="/upload" component={Upload} />
           <Route path="/post/info/:id" component={Postinfo} />
