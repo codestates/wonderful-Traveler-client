@@ -1,31 +1,20 @@
 import './Header.css';
 import { Component } from 'react';
-// import { Link } from "react-router-dom";
+
 class Header extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      spreadMenu: false,
-    }
-  }
+  
   componentDidMount = () => {
     document.addEventListener('scroll', function () {
       var currentScrollValue = document.documentElement.scrollTop;
       let header = document.getElementById("scroll");
-      if (currentScrollValue > 300) {
+      if (currentScrollValue > 280) {
         header.classList.add("add-background");
       } else {
         header.classList.remove("add-background");
       }
     });
   }
-  clickList = () => {
-    if (this.state.spreadMenu === false) {
-      this.setState({ spreadMenu: true })
-    } else {
-      this.setState({ spreadMenu: false })
-    }
-  }
+  
   render() {
     return (
       <header id="scroll" className="smooth">
@@ -48,26 +37,8 @@ class Header extends Component {
                     <a href="/info"> About </a>
                   </li>
                   <li>
-                    <div onClick={this.clickList}>추천장소</div>
+                    <a href="/posts">추천장소</a>
                   </li>
-                  {this.state.spreadMenu ?
-                    <div className="menuLocal">
-                      <li className="menuLocalItem">
-                        <a href="/posts/Seoul"> 서울 </a>
-                      </li>
-                      <li className="menuLocalItem">
-                        <a href="/posts/Gyeonggi"> 경기 </a>
-                      </li>
-                      <li className="menuLocalItem">
-                        <a href="/posts/Dejeon"> 대전 </a>
-                      </li>
-                      <li className="menuLocalItem">
-                        <a href="/post/Dejeon"> 대구 </a>
-                      </li>
-                      <li className="menuLocalItem">
-                        <a href="/post/Dejeon"> 부산 </a>
-                      </li>
-                    </div> : null}
                 </ul>
               </div>
               <div className="logBox">

@@ -20,24 +20,24 @@ const Filter = (props) => {
     return (
         <div className="Filter">
             <div className="form-control">
-            <input
-                className="input-box"
-                type="text"
-                placeholder="주소 검색"
-                onChange={props.handleInputChange}
-            />
-            <div>
-                <button className="loc-button"onClick={props.ClickFilterLocation}>검색</button>
-            </div>
+                <input
+                    className="input-box"
+                    type="text"
+                    placeholder="주소 검색"
+                    onChange={props.handleInputChange}
+                />
+                <div>
+                    <button className="loc-button" onClick={props.ClickFilterLocation}>검색</button>
+                </div>
             </div>
             <div className="recommand">
                 {(rec[0] && props.state.location !== '') ? <h3>추천장소</h3> : null}
                 {(rec[0] && props.state.location !== '') ? (rec).map((location, index) => (
                     <div key={index} className="map-location"
-                    onClick={()=>{
-                        document.querySelector(".input-box").value = location;
-                        props.ClickFilterLocation();
-                    }}>{location}</div>)) : null}
+                        onClick={() => {
+                            document.querySelector(".input-box").value = location;
+                            props.ClickFilterLocation();
+                        }}>{location}</div>)) : null}
             </div>
             <button className="Filter-button" onClick={props.ClickFilterList}>{props.state.list ? '사진' : '리스트'}</button>
             <button className="Filter-button" onClick={props.ClickFilterRecent}>최신순</button>

@@ -43,7 +43,7 @@ class Upload extends Component {
         let thumbnail = front.slice(10, end - 1);
         let address = document.querySelector('#address').value;
         let location = address.split(' ');
-        this.setState({ thumbnail: thumbnail, address: address, location: location[0]})
+        this.setState({ thumbnail: thumbnail, address: address, location: location[0] })
     }
 
     imageHandler() {
@@ -74,7 +74,7 @@ class Upload extends Component {
     }
 
     modalClose = () => {
-        this.setState({open: false})
+        this.setState({ open: false })
     }
     render() {
         console.log(this.state)
@@ -113,15 +113,14 @@ class Upload extends Component {
                         </div>
                     </div>
                     <div>
-                        <input id='address' type='text' placeholder="주소" readOnly></input>
-                        <button onClick={()=>{this.setState({open:true})}}>주소찾기</button>
-                        <Postcode open={this.state.open} close ={this.modalClose}/>
-                    </div>
-                    <button className="submit-button" onClick={this.handleSubmit}>버튼</button>
-                    <div>
-                        {this.state.textValue ? <div>{this.state.textValue}</div>
-                            : null}
-
+                        <div className="formbox">
+                            <input id='address' className="inputbox" type="text" readOnly />
+                            <div>
+                                <button className="addbutton" onClick={() => { this.setState({ open: true }) }}>검색</button>
+                            </div>
+                        </div>
+                        <Postcode open={this.state.open} close={this.modalClose} />
+                        <button className="submit-button" onClick={this.handleSubmit}>업로드</button>
                     </div>
                 </section>
             </div>
