@@ -16,7 +16,7 @@ import './App.css';
 class App extends Component {
   state={
     isLogin: false,
-    userinfo: null,
+    userinfo: 'null',
     signinOpen: false,
     signupOpen: false,
   }
@@ -32,10 +32,21 @@ class App extends Component {
       })
   }
 
-  handleSignUpSuccess = () => {
+  handleSignout = () => {
+    axios.post('http://localhost:8080/signout', 
+      { withCredentials: true }
+      )
+      .then((result)=>{
+          this.setState({
+          userinfo: null
+        })
+      })
+  }
+
+  handleSignUpSuccess = (data) => {
     this.setState({
       signupOpen: false,
-      userinfo: 'something'
+      userinfo: data
     });
   }
   handleSigninSuccess = () => {
@@ -61,7 +72,7 @@ class App extends Component {
     return (
       <div>
         <div>
-          <Header openSignin={this.openSignin} openSignup={this.openSignUp} userinfo={this.state.userinfo}/>
+          <Header openSignin={this.openSignin} openSignup={this.openSignUp} userinfo={this.state.userinfo} handleSignout={this.handleSignout}/>
         </div>
           <SignUp open={this.state.signupOpen} close={this.closeSignUp}  handleSignUpSuccess={this.handleSignUpSuccess}/>
           <SignIn open={this.state.signinOpen} close={this.closeSignin} handleSigninSuccess={this.handleSigninSuccess}/>

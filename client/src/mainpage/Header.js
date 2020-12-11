@@ -1,6 +1,5 @@
 import './Header.css';
 import { Component } from 'react';
-
 class Header extends Component {
   
   componentDidMount = () => {
@@ -55,8 +54,8 @@ class Header extends Component {
                   <button onClick={this.props.openSignup}>회원가입</button>
                   </div> : 
                   <div>
-                  <button onClick={this.props.openSignin}>로그아웃</button>
-                  <button onClick={this.props.openSignup}>마이페이지</button>
+                  <button onClick={this.props.handleSignout}>로그아웃</button>
+                  <a href="/mypage"><button>마이페이지</button></a>
                   </div>}
                 </div>
               </div>

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 // import axios from 'axios';
-import cookie from 'react-cookies';
-const token = cookie.load('token');
 
 class SetPassword extends Component {
     constructor(props){
@@ -17,6 +16,44 @@ class SetPassword extends Component {
   handleInputValue = (key) => (e) => {
     this.setState({ [key]: e.target.value });
   };
+
+  handleChangePassword = () => {
+    this.setState({ error: ""});
+    for (let key in this.state) {
+      if (key !== 'error' && this.state[key] === "") {
+        this.setState({
+          error: "모든 항목을 입력해주십시오"
+        })
+        return;
+      } 
+      else {
+        this.setState({ error: "" });
+      }
+    }
+    
+    if (this.state.newPassword !== this.state.confirm) {
+      this.setState({
+        error: "비밀번호를 다시 확인해 주십시오"
+      })
+    } else {
+      this.setState({ error: "" });
+      axios.post("http://localhost:8080/user/changepw", {
+        oldPassword: this.state.oldPassword,
+        newPassword: this.state.newPassword
+      },{ withCredentials: true }
+      )
+        .then(() => {
+          this.setState({
+            error: "비밀번호가 변경되었습니다"
+          })
+        })
+        .catch(err =>{
+          this.setState({
+            error: "현재 패스워드가 틀립니다"
+          })
+        })
+    }
+  }
 
   render() {
     return (
@@ -34,7 +71,7 @@ class SetPassword extends Component {
           <input className="pwchanges" type="password" placeholder="변경 비밀번호" onChange={this.handleInputValue("confirm")}></input>
         </div>
         <div>
-          <button className="change" >변경</button>
+          <button onClick={this.handleChangePassword} className="change" >변경</button>
           {this.state.error ? <div className="alert-box">{this.state.error}</div> : ''}
         </div>
       </div>
