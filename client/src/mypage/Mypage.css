@@ -1,0 +1,144 @@
+@import url(//fonts.googleapis.com/earlyaccess/nanumpenscript.css);
+
+.avatar-upload {
+    box-sizing: border-box;
+    float: left;
+    width: 50%;
+    padding-left: 20px;
+    margin-top: 50px;
+    height: auto;
+    border-right-style: dashed;
+    border-right-color: gray;
+}
+
+.avatar {
+    height: 400px;
+    width: 400px;
+    line-height: 400px;
+    text-align:center;
+    box-sizing: border-box; 
+    align-content: center;
+    margin: auto;
+    padding: 0;
+}
+
+.avatar-img{
+    max-width: 370px;
+    max-height: 370px;
+    vertical-align: middle;
+}
+.change-pw{
+    width: 100%;
+}
+.set-password {
+    box-sizing: border-box;
+    float: right;
+    width: 50%;
+    padding-left: 30px;
+    margin-top: 50px;
+    height: auto;
+}
+.mydata-section > div{
+    margin-bottom: 20px;
+}
+.tab-title {
+    margin-left: 60px;
+    color: black;
+    font-size: 28px;
+    cursor: pointer;
+    display: inline;
+}.tab-title:hover{
+    color: gray
+}
+
+.tabs {  
+    height: 200px;
+    width: 100%;
+    vertical-align: middle;
+    line-height: 200px;
+}
+.btn {
+    display: inline;
+    height: 100px;
+}
+.change {
+    margin-top: 10px;
+    height: 30px;
+    width: 50px;
+}
+
+.pwchanges{
+    border:0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center; 
+    border: 2px solid #3498db;
+    padding: 14px 10px;
+    width: 40%;
+    outline: none;
+    color:black;
+    border-radius: 24px;
+    transition: 0.25s;
+    font-size: 18px;
+}
+.pwchanges::placeholder{
+    font-size: 18px;
+}
+
+.pwchanges:focus {
+    width: 60%;
+    font-size: 22px;
+    border-color: #2ecc71;
+}
+
+.cbtn {
+    height: 35px;
+    width: 60px; 
+}
+
+.user-inf {
+    height: 120px;
+}
+
+.user-em-id {
+    font-size: 20px;
+    margin-top: 15px;
+    word-spacing: 20px;
+}
+
+.top-section {
+    position: relative;
+    display: inline-block;
+    background-image: url('../mainpage/first-section.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 300px;
+    font-size: 50px;
+    color: white;
+    line-height: 300px;
+    padding-left: 200px;
+  }
+  .mydata-section {
+    position: relative;
+    margin: 0 auto;
+    padding: 0;
+    width: 80%;
+    height: auto;
+    background-color: rgba(0, 0, 0, 0.0);
+    border-bottom: 10px double black;
+    vertical-align: middle;
+    padding-top: 30px;
+  }
+  .mypage-section {
+    position: relative;
+    margin: 0 auto;
+    padding: 0;
+    width: 80%;
+    height: 620px;
+    background-color: rgba(0, 0, 0, 0.0);
+    border-bottom: 10px double black;
+    vertical-align: middle;
+    padding-top: 30px;
+  }

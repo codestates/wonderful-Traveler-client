@@ -1,0 +1,119 @@
+.st-section {
+    position: relative;
+    display: inline-block;
+    background-image: url('../mainpage/first-section.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 300px;
+    font-size: 50px;
+    color: white;
+    line-height: 300px;
+    padding-left: 200px;
+  }
+
+  .upload-section {
+    position: relative;
+    margin: 0 auto;
+    padding: 0;
+    width: 1000px;
+    height: auto;
+    border-bottom: 10px double black;
+    vertical-align: middle;
+    padding-top: 30px;
+    overflow: auto;
+}
+#quill {
+    height: 500px;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.ql-container {
+    overflow: scroll;
+}
+
+.ql-video {
+    width: 720px;
+    height: 400px;
+}
+
+.upload-title {
+    width: 98%;
+    height: 60px;
+    margin-bottom: 10px;
+    border: none;
+    border-bottom: double;
+    font-size: 30px;
+    padding-left: 15px;
+}::placeholder{
+    font-size: 30px;
+}
+
+.submit-button{
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid rgb(176, 176, 176);
+    background-color: rgb(255, 255, 255);
+    outline: none;
+    border-radius: 30px;
+    float: right;
+    color: rgb(34, 34, 34);
+    position: relative;
+    padding: 8px 16px;
+    font-size: 16px;
+    line-height: 16px;
+    margin-left: 8px;
+}
+
+
+.addbutton{
+    height: 27px;
+    width: 65px;
+    border: none;
+    background-color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+
+.formbox > input:focus{
+    outline: none;
+}
+button:focus{
+    outline: none;
+}
+.formbox > div {
+    float: right;
+    border-left: 1px solid rgba(0, 0, 0, 0.5)
+}
+.formbox:hover{
+    border: 2px solid black;
+    z-index: 2;
+}
+.inputbox{
+    font-size: 18px;
+    border: none;
+    width: 280px;
+    min-width: 0px;
+    overflow: auto;
+    height: 25px;
+}
+.inputbox::placeholder{
+    font-size: 18px;
+}
+.formbox {
+    float: left;
+    position: relative;
+    background-clip: padding-box;
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    border-radius: 16px;
+    -webkit-flex: 1 0 0%;
+    -ms-flex: 1 0 0%;
+    flex: 1 0 0%;
+    min-width: 0px;
+    width: 350px;
+    padding: 5px 10px;
+    margin-left: 30%;
+    margin-bottom: 20px;
+}

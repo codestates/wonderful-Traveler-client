@@ -1,0 +1,150 @@
+/* ID */
+#banner {
+  position: static;
+  height:100%;
+  width:100%;
+  overflow: hidden;
+}
+
+#videobcg {
+  background-position: center center;
+  background-size: contain;
+  object-fit: cover;
+  z-index: -100;
+  min-height: 100%;
+  min-width: 100%;
+  height: 100% ;
+  width: 100%;
+  position: absolute;
+}
+
+/* MaivView */
+.mainView{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.text-view{
+  position: absolute;
+  font-size: 40px;
+  color: White;
+  margin-top: -120px
+}
+.mainView h1{
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  font-size: 45px;
+  color: White;
+  z-index: 1;
+}
+.secondSection > article {
+  overflow: hidden;
+  float: right;
+  margin-right: 120px;
+}
+article > h2 {
+  font-size: 42px;
+  line-height: 30px;
+}
+.section {
+  padding: 0 10%;
+  padding-bottom: 10%;
+  box-sizing: border-box;
+  border-bottom: 10px double black;
+}
+.section > .secondSection > div {
+  width: 47%;
+  padding: 0;
+  float: left;
+  margin-left: 10px
+}
+.section > .secondSection >div>img {
+  height: auto;
+  width: 95%;
+  margin-left: 10px;
+  margin-top: 50px;
+}
+
+.secondSection{
+  overflow: auto;
+  margin-top: 50px;
+  height: 100%;
+  line-height: 100%;
+  margin-bottom: 50px;
+}
+
+.secondDescription{
+  overflow: auto;
+  margin-top: 150px;
+  height: 100%;
+  margin-bottom: 50px;
+}
+
+article > h4 {
+  padding: 0;
+  font-size: 18px;
+  color: rgba(0, 0, 0, 0.6);
+  line-height: 0;
+}
+
+.secondDescription > article{
+  float: left;
+  margin-left: 120px;
+  margin-bottom: 30px;
+}
+.section > .secondDescription > div {
+  width: 48%;
+  padding: 0;
+  float: right;
+  margin-right: 10px
+}
+.section > .secondDescription > span {
+  width: 48%;
+  padding: 0;
+  float: right;
+  margin-right: 10px
+
+}
+.section > .secondDescription > span >img{  
+  height: auto;
+  width: 95%;
+  margin-top: -160px;
+  float: right;
+}
+.secondDescription > div > img {
+  height: auto;
+  width: 95%;
+  margin-top: 40px;
+  float: right;
+}
+
+.secondMiddle{
+  overflow: auto;
+  margin-top: 50px;
+  height: 100%;
+  line-height: 100%;
+  margin-bottom: 50px;
+}
+.secondMiddle > article {
+  margin-top: 200px;
+  text-align: center;
+}
+
+.secondMiddle > div > img {
+  height: auto;
+  width: 70%;
+  margin-top: 40px;
+}
+
+.secondMiddle > div {
+  width: 100%;
+  margin-bottom: 50px;
+  padding: 0;
+  text-align: center;
+}
+
+section > div > a {
+  text-decoration: none;
+  color: white;
+}
