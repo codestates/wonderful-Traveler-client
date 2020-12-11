@@ -81,7 +81,7 @@ class Upload extends Component {
         return (
             <div>
                 <section className="st-section">
-                    <div>업로드</div>
+                    <div></div>
                 </section>
                 <section className="upload-section">
                     <input className="upload-title" placeholder="title" onChange={this.handleTitleChange}></input>

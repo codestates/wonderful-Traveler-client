@@ -77,7 +77,7 @@
 }
 
 
-input:focus{
+.formbox > input:focus{
     outline: none;
 }
 button:focus{

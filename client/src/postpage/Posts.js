@@ -15,9 +15,7 @@ class Posts extends Component {
         resultLoc: '',
     }
     componentDidMount = () => {
-        if (fakedata) {
-            this.setState({ saveAlldata: fakedata, postdata: fakedata, showdata: fakedata.slice(0,this.state.number) })
-        }
+        this.setState({ saveAlldata: fakedata, postdata: fakedata, showdata: fakedata.slice(0,this.state.number) })
     }
 
     ClickFilterLike = () => {
@@ -61,7 +59,7 @@ class Posts extends Component {
         return (
             <div>
                 <section className="st-section">
-                    <div>추천장소</div>
+                    <div></div>
                 </section>
 
                 <section className="list-section">

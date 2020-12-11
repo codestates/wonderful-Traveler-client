@@ -59,8 +59,7 @@
     box-sizing: border-box;
 }
 
-.SignUpText input[type="text"],
-.SignUpText input[type ="password"]{
+.signUpinfo{
     border:0;
     background: none;
     display: block;
@@ -75,8 +74,7 @@
     transition: 0.25s;
 }
 
-.SignUpText input[type="text"]:focus,
-.SignUpText input[type ="password"]:focus {
+.signUpinfo:focus:focus {
     width: 300px;
     border-color: #2ecc71;
 }

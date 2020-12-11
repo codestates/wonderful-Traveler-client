@@ -4,7 +4,7 @@
     border-bottom: 1px solid black;
     padding: 5px;
     margin-bottom: 5px;
-    width: 85%;
+    width: 80%;
     float: left;
 }
 .post-user{
@@ -12,8 +12,9 @@
     border-bottom: 1px solid black;
     padding: 5px;
     margin-bottom: 5px;
-    width: 13%;
+    width: 16%;
     float: left;
+    text-align: center;
 }
 
 .user{
