@@ -28,14 +28,10 @@ class SetPassword extends Component {
           <div className="user-em-id">아이디:  test</div>
         </div>
         <h3>비밀번호 변경</h3>
-        <div>
-          <input className="pwchange" type="password" placeholder="현재 비밀번호" onChange={this.handleInputValue("oldPassword")}></input>
-        </div>
-        <div>
-          <input className="pwchange" type="password" placeholder="변경 비밀번호" onChange={this.handleInputValue("newPassword")}></input>
-        </div>
-        <div>
-          <input className="pwchange" type="password" placeholder="변경 비밀번호" onChange={this.handleInputValue("confirm")}></input>
+        <div className="change-pw">
+          <input className="pwchanges" type="password" placeholder="현재 비밀번호" onChange={this.handleInputValue("oldPassword")}></input>
+          <input className="pwchanges" type="password" placeholder="변경 비밀번호" onChange={this.handleInputValue("newPassword")}></input>
+          <input className="pwchanges" type="password" placeholder="변경 비밀번호" onChange={this.handleInputValue("confirm")}></input>
         </div>
         <div>
           <button className="change" >변경</button>

@@ -18,24 +18,24 @@ class App extends Component {
     isLogin: false,
     userinfo: null,
     signinOpen: false,
-    signupOpen: false
+    signupOpen: false,
   }
   componentDidMount = () => {
-      // axios.get('ec2-15-164-38-202.ap-northeast-2.compute.amazonaws.com/user/info', 
-      // { withCredentials: true }
-      // )
-      // .then((result)=>{
-      //     this.setState({
-      //     isLogin: true,
-      //     userinfo: result.data
-      //   })
-      //   console.log(result.data)
-      // })
+      axios.get('http://localhost:8080/', 
+      { withCredentials: true }
+      )
+      .then((result)=>{
+          this.setState({
+          isLogin: true,
+          userinfo: result.data
+        })
+      })
   }
 
   handleSignUpSuccess = () => {
     this.setState({
       signupOpen: false,
+      userinfo: 'something'
     });
   }
   handleSigninSuccess = () => {
@@ -61,7 +61,7 @@ class App extends Component {
     return (
       <div>
         <div>
-          <Header openSignin={this.openSignin} openSignup={this.openSignUp}/>
+          <Header openSignin={this.openSignin} openSignup={this.openSignUp} userinfo={this.state.userinfo}/>
         </div>
           <SignUp open={this.state.signupOpen} close={this.closeSignUp}  handleSignUpSuccess={this.handleSignUpSuccess}/>
           <SignIn open={this.state.signinOpen} close={this.closeSignin} handleSigninSuccess={this.handleSigninSuccess}/>

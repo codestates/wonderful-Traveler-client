@@ -25,7 +25,7 @@ class Section extends Component {
                         </div>
                         <article data-aos='fade-left'>
                             <h2>차만 있으면</h2>
-                            <h4>떠날 수 있습니다</h4><div></div> 
+                            <h4>떠날 수 있습니다</h4>
                             <h4>언제 어디서든 떠나는 나의 여행</h4>
                         </article>
                         <div>
@@ -36,7 +36,7 @@ class Section extends Component {
                     <div className="secondMiddle">
                         <article data-aos='fade-bottom'>
                             <h2>자연이 만든</h2>
-                            <h4>아늑함을 느껴보세요.</h4><div></div>
+                            <h4>아늑함을 느껴보세요.</h4>
                             <h4>단 하루라도 우리의 밤은 아름다울 필요가 있습니다.</h4>
                         </article>
                         <div>
@@ -47,7 +47,7 @@ class Section extends Component {
                     <div className="secondDescription">
                         <article data-aos='fade-right'>
                             <h2>나만의 장소를</h2>
-                            <h4>공유해보세요.</h4><div></div>
+                            <h4>공유해보세요.</h4>
                             <h4>산, 바다, 섬, 계곡 어디든 좋습니다</h4>
                         </article>
                         <div>

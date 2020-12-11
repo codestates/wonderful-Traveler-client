@@ -12,12 +12,14 @@ class Mypage extends Component {
     return (
       <div>
             <section className="top-section">
-                <div>유저정보</div>
+                <div></div>
             </section>
             <section className="mydata-section">
-                <div>프로필</div>
-                <div>좋아요</div>
-                <div>작성한 게시물</div>
+                <div>
+                  <span className='tab-title'>프로필</span>
+                  <span className='tab-title'>좋아요</span>
+                  <span className='tab-title'>작성한 게시물</span>
+                </div>
             </section>
             <section className="mypage-section">
                 <SetPicture userinfo={this.props.userinfo}/>

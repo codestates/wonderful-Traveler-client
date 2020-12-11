@@ -12,14 +12,66 @@
     padding-left: 200px;
   }
 
-.info-section {
+.infomation-section {
     position: relative;
     margin: 0 auto;
     padding: 0;
-    width: 1000px;
-    height: 1000px;
-    background-color: rgba(0, 0, 0, 0.4);
+    width: 80%;
+    height: auto;
     border-bottom: 10px double black;
     vertical-align: middle;
     padding-top: 30px;
+    overflow: auto;
+    padding-bottom: 50px;
+}
+
+.header-title{
+  margin-top: 40px;
+  width: auto;
+  font-size: 50px;
+  color: black;
+  border-bottom: double black;
+  margin-bottom: 40px;
+  font-weight: bold;
+}
+.article-input{
+  font-size: 16px;
+  margin-bottom: 40px;
+}
+.header-name{
+  width: auto;
+  font-size: 32px;
+  color: black;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.input-header{
+  font-size: 20px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+.img-div{
+  width: 100%;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.img-div > img {
+  width: 40%;
+  height: auto;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.car-posts {
+  color: rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+  font-size: 32px;
+}
+
+.car-posts:hover{
+  color: black
+}
+
+.camefrom{
+  margin-top: 80px
 }
