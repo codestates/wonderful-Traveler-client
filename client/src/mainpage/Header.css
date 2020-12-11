@@ -253,3 +253,8 @@ ul>li>a:hover{
 ul>li>div{
 color: #2ecc71
 }
+
+div > div > a {
+
+  text-decoration: none;
+}
