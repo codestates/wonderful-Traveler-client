@@ -18,7 +18,7 @@ class Section extends Component {
                         <a href='/info'><h1>차박의 민족</h1></a>
                     </div>
                 </section>
-                <section className="section">
+                <section className="sections">
                     <div className="secondSection">
                         <div>
                             <img data-aos='fade-right' src="../mainSection.jpg" alt="img"></img>

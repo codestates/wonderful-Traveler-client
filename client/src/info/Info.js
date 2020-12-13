@@ -7,11 +7,10 @@ class Info extends Component {
     componentDidMount = () => {
         AOS.init();
     }
-    render(){
-        return(
+    render() {
+        return (
             <div>
-                <section className="st-section">
-                    <div></div>
+                <section className="inf-section">
                 </section>
                 <section className="infomation-section">
                     <div className='header-title'>차박이란</div>
@@ -44,7 +43,9 @@ class Info extends Component {
                         <a href="/posts"><span className="car-posts">차박의 민족</span></a>
                         <span data-aos='fade-bottom' className="article-input">을 통해 다양한 차박장소를 알아보세요</span>
                     </div>
-                    <div data-aos='fade-bottom' className="camefrom">출처: junsungki.com/magazine/post-detail.do?id=2823#:~:text=차박이란%2C%20여행할,먹고%20잘%20수%20있다는%20것!</div>
+                    <div className="camefrom">
+                        <span>출처: </span><span><a href="junsungki.com/magazine/post-detail.do?id=2823#:~:text=차박이란%2C%20여행할,먹고%20잘%20수%20있다는%20것!">junsungki.com/</a></span>
+                    </div>
                 </section>
             </div>
         )

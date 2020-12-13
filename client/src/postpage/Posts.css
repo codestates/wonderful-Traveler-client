@@ -1,17 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&display=swap');
 
-.st-section {
-    position: relative;
-    display: inline-block;
-    background-image: url('../mainpage/first-section.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 300px;
-    font-size: 50px;
-    color: white;
-    line-height: 300px;
-    padding-left: 200px;
+.rec-section {
+  position: relative;
+  display: inline-block;
+  background-image: url('../mainpage/first-section.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 300px;
+  font-size: 50px;
+  color: white;
+  line-height: 300px;
   }
 
 .list-section {

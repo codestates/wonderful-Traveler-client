@@ -53,6 +53,7 @@ class Signup extends React.Component {
         .then(() => {
           this.props.handleSignUpSuccess();
         })
+        .then(()=>window.location.reload("/"))
         .catch(err =>{
           this.setState({
             error: "존재하는 이메일 입니다"

@@ -48,7 +48,7 @@ class Header extends Component {
               </div>
               <div className="logBox">
                 <div className="logInBox">
-                  {this.props.userinfo === null ?
+                  {!this.props.isLogin ?
                   <div>
                   <button onClick={this.props.openSignin}>로그인</button>
                   <button onClick={this.props.openSignup}>회원가입</button>
