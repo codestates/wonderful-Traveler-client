@@ -35,10 +35,9 @@ class SignIn extends React.Component {
         password: this.state.password
       }, {withCredentials: true})
       .then((result)=>{
-        console.log(result);
-        console.log('로그인완료');
-        this.props.handleSigninSuccess(result);
+        this.props.handleSigninSuccess();
       })
+      .then(()=>window.location.reload("/"))
       .catch(err => {
         this.setState({
           error: '이메일/비밀번호를 확인해주십시오'

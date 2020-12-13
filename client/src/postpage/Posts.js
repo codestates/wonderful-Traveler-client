@@ -17,7 +17,7 @@ class Posts extends Component {
     }
     componentDidMount = () => {
         // this.setState({ saveAlldata: fakedata, postdata: fakedata, showdata: fakedata.slice(0,this.state.number) })
-        if (this.state.resultLoc) {
+        if (this.state.resultLoc.length !== 0) {
             axios.post('http://localhost:8080/list', {
                 // likeuser: null,
                 // userid: null,
@@ -86,7 +86,7 @@ class Posts extends Component {
         console.log(this.state)
         return (
             <div>
-                <section className="st-section">
+                <section className="rec-section">
                     <div></div>
                 </section>
 

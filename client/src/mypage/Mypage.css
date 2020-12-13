@@ -107,7 +107,7 @@
     word-spacing: 20px;
 }
 
-.top-section {
+.mypagesection {
     position: relative;
     display: inline-block;
     background-image: url('../mainpage/first-section.jpg');
@@ -118,9 +118,8 @@
     font-size: 50px;
     color: white;
     line-height: 300px;
-    padding-left: 200px;
   }
-  .mydata-section {
+  .mydata {
     position: relative;
     margin: 0 auto;
     padding: 0;
@@ -131,7 +130,7 @@
     vertical-align: middle;
     padding-top: 30px;
   }
-  .mypage-section {
+  .mypage {
     position: relative;
     margin: 0 auto;
     padding: 0;

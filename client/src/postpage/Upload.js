@@ -37,29 +37,32 @@ class Upload extends Component {
         let address = document.querySelector('#address').value;
         let location = address.split(' ');
         this.setState({ thumbnail: thumbnail, address: address, location: location[0] });
-
-        if (!this.state.title) {
-            this.setState({
-                error: '제목을 입력하세요', click: true
-            });
-        } else {
-            this.setState({ error: '' });
-            axios.post("http://localhost:8080/upload", {
-                title: this.state.title,
-                textValue: this.state.textValue,
-                location: this.state.location,
-                address: this.state.address,
-                thumbnail: this.state.thumbnail
-            }, { withCredentials: true })
-                .then((result) => {
-                    this.props.history.push(`/post/info/${result.data.id}`)
-                })
-                .catch(err => {
-                    this.setState({
-                        error: '모든 칸을 입력해주세요'
+        let sendSever = () => {
+            if (!this.state.title) {
+                this.setState({
+                    error: '제목을 입력하세요', click: true
+                });
+            } else {
+                this.setState({ error: '' });
+                axios.post("http://localhost:8080/post/upload", {
+                    title: this.state.title,
+                    textValue: this.state.textValue,
+                    location: this.state.location,
+                    address: document.querySelector('#address').value,
+                    thumbnail: thumbnail
+                }, { withCredentials: true })
+                    .then((result) => {
+                        this.props.history.push('/')
+                        // `/post/info/${result.data.id}`
                     })
-                })
+                    .catch(err => {
+                        this.setState({
+                            error: '모든 칸을 입력해주세요'
+                        })
+                    })
+            }
         }
+        sendSever();
         console.log(this.state.textValue)
     }
 
@@ -101,7 +104,7 @@ class Upload extends Component {
         console.log(this.state)
         return (
             <div>
-                <section className="st-section">
+                <section className="upload-top">
                     <div></div>
                 </section>
                 <section className="upload-section">
