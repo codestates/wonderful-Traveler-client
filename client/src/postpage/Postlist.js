@@ -32,13 +32,14 @@ class Postlist extends Component {
                                 <div className="user">{this.props.postdata.user}</div>
                                 </div>
                                 <div>
-                                <div className="create-at">{this.props.postdata.create_at}</div>
+                                <div className="create-at">{this.props.postdata.createAt}</div>
                                 </div>
                             </div>
                         </div> :
                         <div className="postlist">
                             <div className="thumbnail-div">
-                                <img className="thumbnail" src={this.props.postdata.thumbnail} alt="img" />
+                                {this.props.postdata.thumbnail===null ? <div className="thumbnail">이미지없음</div> :
+                                <img className="thumbnail" src={this.props.postdata.thumbnail} alt="img" />}
                             </div>
                             <div className="infomation">
                                 <div className="title">{this.props.postdata.title}</div>

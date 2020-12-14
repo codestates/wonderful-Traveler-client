@@ -19,21 +19,14 @@ class Upload extends Component {
             address: null,
             thumbnail: '',
             user: null,
-            open: false
+            open: false,
+            error: ''
         }
     }
 
     handleTitleChange = (e) => {
         this.setState({ title: e.target.value });
     };
-
-    handleSubmit = () => {
-        console.log(this.state.textValue)
-    }
-
-    handleChange = (value) => {
-        this.setState({ textValue: value })
-    }
 
     handleSubmit = () => {
         let text = this.state.textValue;
@@ -43,7 +36,38 @@ class Upload extends Component {
         let thumbnail = front.slice(10, end - 1);
         let address = document.querySelector('#address').value;
         let location = address.split(' ');
-        this.setState({ thumbnail: thumbnail, address: address, location: location[0] })
+        this.setState({ thumbnail: thumbnail, address: address, location: location[0] });
+        let sendSever = () => {
+            if (!this.state.title) {
+                this.setState({
+                    error: '제목을 입력하세요', click: true
+                });
+            } else {
+                this.setState({ error: '' });
+                axios.post("http://localhost:8080/post/upload", {
+                    title: this.state.title,
+                    textValue: this.state.textValue,
+                    location: this.state.location,
+                    address: document.querySelector('#address').value,
+                    thumbnail: thumbnail
+                }, { withCredentials: true })
+                    .then((result) => {
+                        this.props.history.push('/')
+                        // `/post/info/${result.data.id}`
+                    })
+                    .catch(err => {
+                        this.setState({
+                            error: '모든 칸을 입력해주세요'
+                        })
+                    })
+            }
+        }
+        sendSever();
+        console.log(this.state.textValue)
+    }
+
+    handleChange = (value) => {
+        this.setState({ textValue: value })
     }
 
     imageHandler() {
@@ -80,8 +104,8 @@ class Upload extends Component {
         console.log(this.state)
         return (
             <div>
-                <section className="st-section">
-                    <div>업로드</div>
+                <section className="upload-top">
+                    <div></div>
                 </section>
                 <section className="upload-section">
                     <input className="upload-title" placeholder="title" onChange={this.handleTitleChange}></input>

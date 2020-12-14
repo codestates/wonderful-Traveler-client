@@ -1,6 +1,5 @@
 import './Header.css';
 import { Component } from 'react';
-
 class Header extends Component {
   
   componentDidMount = () => {
@@ -34,17 +33,30 @@ class Header extends Component {
               <div className="menuBar">
                 <ul className="menuList">
                   <li>
-                    <a href="/info"> About </a>
+                    <a href="/info">차박이란</a>
                   </li>
                   <li>
-                    <a href="/posts">추천장소</a>
+                    <a href="/posts">차박장소</a>
+                  </li>
+                  <li>
+                    <div onClick={()=>{alert("준비중 입니다")}}>랜트카</div>
+                  </li>
+                  <li>
+                    <div onClick={()=>{alert("준비중 입니다")}}>도구판매</div>
                   </li>
                 </ul>
               </div>
               <div className="logBox">
                 <div className="logInBox">
+                  {!this.props.isLogin ?
+                  <div>
                   <button onClick={this.props.openSignin}>로그인</button>
                   <button onClick={this.props.openSignup}>회원가입</button>
+                  </div> : 
+                  <div>
+                  <button onClick={this.props.handleSignout}>로그아웃</button>
+                  <a href="/mypage"><button>마이페이지</button></a>
+                  </div>}
                 </div>
               </div>
             </div>

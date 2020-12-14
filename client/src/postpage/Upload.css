@@ -1,4 +1,4 @@
-.st-section {
+.upload-top {
     position: relative;
     display: inline-block;
     background-image: url('../mainpage/first-section.jpg');
@@ -9,7 +9,6 @@
     font-size: 50px;
     color: white;
     line-height: 300px;
-    padding-left: 200px;
   }
 
   .upload-section {
@@ -25,7 +24,7 @@
 }
 #quill {
     height: 500px;
-    width: 100%;
+    width: 98%;
     margin-bottom: 50px;
 }
 
@@ -39,7 +38,7 @@
 }
 
 .upload-title {
-    width: 98%;
+    width: 95%;
     height: 60px;
     margin-bottom: 10px;
     border: none;
@@ -77,7 +76,7 @@
 }
 
 
-input:focus{
+.formbox > input:focus{
     outline: none;
 }
 button:focus{

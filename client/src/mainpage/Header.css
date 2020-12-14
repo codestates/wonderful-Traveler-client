@@ -9,10 +9,6 @@ header {
   top: 0;
 }
 
-a {
-  text-decoration: none;
-  color: #2ecc71;
-}
 
 /* Header Hamburger  */
 :root {
@@ -175,6 +171,7 @@ a {
     transition: all 0.2s ease;
   }
 
+
 /* menuBar */
   .menu-wrap .menu > div > div {
     color: #fff;
@@ -193,7 +190,7 @@ a {
     padding: 25px;
     cursor: pointer;
     z-index: 5;
-    line-height: 150%;
+    line-height: 250%;
 }
 
 /* MenuLocal (line-height: 130%) */
@@ -202,7 +199,7 @@ a {
     font-size: 1.3rem;
     position: relative;
     z-index: 6;
-    line-height: 130%;
+    line-height: 250%;
 }
 
 
@@ -222,7 +219,7 @@ a {
   bottom: 0;
   text-align : center;
   position: absolute;
-  margin-bottom: 100px;
+  margin-bottom: 10px;
 }
 
 .logBox button {
@@ -243,4 +240,21 @@ a {
 
 .logBox button:hover {
   background:#2ecc71;
+}
+ul>li>a{
+text-decoration: none;
+color: #2ecc71;
+}
+
+ul>li>a:hover{  
+  color: rgba(46, 204, 113, 0.4)
+}
+
+ul>li>div{
+color: #2ecc71
+}
+
+div > div > a {
+
+  text-decoration: none;
 }
