@@ -34,7 +34,6 @@ class App extends Component {
   }
 
   handleSignout = () => {
-    window.location.reload("/")
     axios.post('http://localhost:8080/signout', 
       { withCredentials: true }
       )
@@ -51,6 +50,7 @@ class App extends Component {
           var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
           document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
       }
+      document.location.href = '/'
   }
 
   handleSignUpSuccess = () => {
@@ -79,7 +79,7 @@ class App extends Component {
   };
 
   render() {
-    console.log(this.state)
+    console.log(document.cookie )
     return (
       <div>
         <div>
@@ -89,7 +89,7 @@ class App extends Component {
           <SignIn open={this.state.signinOpen} close={this.closeSignin} handleSigninSuccess={this.handleSigninSuccess}/>
         <Route exact path="/" component={Section} />
         <Switch>
-          <Route path="/posts" component={Posts} />
+          <Route path="/posts" isLogin={this.state.isLogin} component={Posts} />
           <Route path="/info" component={Info} />
           <Route path="/upload" component={Upload} />
           <Route path="/post/info/:id" component={Postinfo} />
