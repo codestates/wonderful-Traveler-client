@@ -18,8 +18,10 @@ class App extends Component {
     isLogin: false,
     userinfo: null,
     signinOpen: false,
-    signupOpen: false
+    signupOpen: false,
+    userid: "", 
   }
+
   componentDidMount = () => {
       // axios.get('ec2-15-164-38-202.ap-northeast-2.compute.amazonaws.com/user/info', 
       // { withCredentials: true }
@@ -56,6 +58,7 @@ class App extends Component {
   closeSignUp = () => {
     this.setState({ signupOpen: false });
   };
+
 
   render() {
     return (

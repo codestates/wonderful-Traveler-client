@@ -3,10 +3,6 @@ import { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 class Postlist extends Component {
-
-    // componentDidMount = ()=>{
-
-    // }
     render() {
         return (
             <div id='make-hover'>

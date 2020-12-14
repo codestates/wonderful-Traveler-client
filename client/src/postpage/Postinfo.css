@@ -5,32 +5,87 @@
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
-    height: 300px;
+    height: 400px;
     font-size: 50px;
     color: white;
-    line-height: 300px;
+    line-height: 200px;
     padding-left: 200px;
-  }
+}
 
-.info-section {
+.infoSection {
+    background-color:white;
+    background-size: cover;
+    background-position: center;
+    width: 80%;
+    height: 600px;
+    max-width: 70%;
+    border: 5px solid #2370a5;
     position: relative;
-    margin: 0 auto;
+    margin: 10px auto;
     padding: 0;
-    width: 1000px;
-    height: 1000px;
-    background-color: rgba(0, 0, 0, 0.4);
-    border-bottom: 10px double black;
     vertical-align: middle;
     padding-top: 30px;
     align-content: center;
+}
+
+.contentTitle{
+    font-size: 50px;
+}
+
+.contentText {
+    width: 80%;
+    margin: 50px auto;
+    padding: 0;
+    position: relative;
+    border: 1px solid #2370a5;
+}
+
+/* like */
+
+.otherDiv {
+    margin-top: 50px;
+    border-top: solid 1px #ababab;
+    display: flexbox;
+    grid-template-columns: 25% 40% 25%;
     
 }
 
-.content-text{
-    width: 90%;
-    margin: 0 auto;
-    padding: 0;
+/* Reply */
+.replyDiv {
     position: relative;
-    margin-bottom: 50px;
-    border: solid;
+    border-top: solid 1px #ababab;
+    margin-top: 50px;
 }
+
+.replayDiv h4 {
+    text-align: center;
+    margin-top: 50px;
+    margin-left: 30px;
+}
+
+.replayDiv , input {
+    height: 80px;
+    border-bottom: solid 1px #ababab;
+    width: 80%;
+    padding: 0;
+    resize: none;
+    font-size: 15px;
+    line-height: 20px;
+    margin-left: 5%;
+}
+
+
+li {
+ list-style: none;
+ text-align: center;
+}
+
+#replySubmitButton {
+    position: absolute;
+    width: 10%;
+    height: 50%;
+    margin-left: 1%;
+    background-color: white;
+    border: solid 1px #ababab;
+    cursor: pointer;
+} 

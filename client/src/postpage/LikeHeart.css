@@ -1,0 +1,13 @@
+.heartBtn {
+    height: 38px;
+    padding: 0 30px;
+    font-size: 11px;
+    background-color: transparent;
+    border-radius: 6px;
+    border:0;
+    outline: 0;
+}
+
+.like {
+    margin: 50px 0px 0px 50%;
+}

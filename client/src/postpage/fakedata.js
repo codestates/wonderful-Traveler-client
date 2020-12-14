@@ -7,7 +7,7 @@ export const fakedata = [
         address: "서울시 강동구 상일동",
         user: '1dw2',
         thumbnail: "https://i.ibb.co/SrpTKPV/logo512.png",
-        like: 3,
+        like: 4,
         create_at: '2020-01-01' 
     },
     {
