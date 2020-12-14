@@ -6,8 +6,6 @@ class LikeHeart extends Component {
         like: false,
     }
 
-    // handleIncrement = () => {}
-    // state object 안에 있는 count를 증가 한 뒤 state를 update를 해야 한다.
     toggleLike = (state) => {
         this.setState({
             like: ! this.state.like,
@@ -15,21 +13,35 @@ class LikeHeart extends Component {
         });
     }
 
-    // handleDecrement = () = > {}
-    // toggleDisLike = (state) => {
-    //     const likeNum = this.state.likeNum -1 ;
-    //     this.setState({
-    //         likeNum : likeNum < 0 ? 0 : likeNum
-    //     })
-    //     alert('좋아요 버튼을 취소했습니다.');
-    // }
+    // getLikeInfo = async function () {
+    //     const { userId, login } = this.props;
+        
+    //     // 로그인 된 상태에서 만 실행해야 한다.
+    //     if(login) {
+    //         const postId = this.props.match.params.data;
+    //         const obj = { userId : userId, postId: postId }
 
+    //         const getData = await axios('users/like', {
+    //             method: 'POST',
+    //             headers: new Headers(),
+    //             data: obj
+    //         })
+
+    //         if(getData.data[0]) {
+    //             this.setState({
+    //                 likeExist : true,
+    //                 likeNum : getData.data[0].likes
+    //             })
+    //         }
+    //     }
+    // };
+    
     render() {
         const changeColour = this.state.like ? "red" : "grey"
         
         return (
             <div className="like">
-                <button clssName="heartBtn"
+                <button className="heartBtn"
                 onClick={this.toggleLike}>
                     <i className="fas fa-heart fa-lg" style={{ color: 
                     changeColour}}>{this.state.likeNum}</i>

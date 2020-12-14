@@ -12,27 +12,34 @@
     padding-left: 200px;
 }
 
+/* post Section */
 .infoSection {
     background-color:white;
     background-size: cover;
     background-position: center;
-    width: 80%;
+    width: 70%;
     height: 600px;
     max-width: 70%;
-    border: 5px solid #2370a5;
+    border: 1px solid #2370a5;
     position: relative;
     margin: 10px auto;
     padding: 0;
     vertical-align: middle;
-    padding-top: 30px;
+    padding-top: 10px;
     align-content: center;
 }
 
-.contentTitle{
+
+.postTitle{
+    letter-spacing: 0,5px;
     font-size: 50px;
+    text-align: center;
+    transform: capitalize;
+    margin: 0;
 }
 
-.contentText {
+.postText {
+    text-align: center;
     width: 80%;
     margin: 50px auto;
     padding: 0;
@@ -52,28 +59,27 @@
 
 /* Reply */
 .replyDiv {
+    text-align: center;
     position: relative;
     border-top: solid 1px #ababab;
     margin-top: 50px;
 }
 
 .replayDiv h4 {
-    text-align: center;
     margin-top: 50px;
     margin-left: 30px;
 }
 
 .replayDiv , input {
-    height: 80px;
+    height: 70px;
     border-bottom: solid 1px #ababab;
-    width: 80%;
+    width: 70%;
     padding: 0;
     resize: none;
     font-size: 15px;
-    line-height: 20px;
-    margin-left: 5%;
+    line-height: 5px;
+    margin-left: 1%;
 }
-
 
 li {
  list-style: none;
