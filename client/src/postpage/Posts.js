@@ -11,7 +11,7 @@ class Posts extends Component {
         showdata: null,
         saveAlldata: null,
         list: true,
-        number: 9,
+        number: 3,
         location: '',
         resultLoc: '',
     }
@@ -24,7 +24,7 @@ class Posts extends Component {
                 address: this.state.resultLoc,
             }, { withCredentials: true })
                 .then((result) => {
-                    this.setState({ postdata: result.data, showdata: result.data.slice(0, 9), number: 9 });
+                    this.setState({ postdata: result.data, showdata: result.data.slice(0, 3), number: 3 });
                 })
                 .catch(err => {
                     this.setState({
@@ -49,23 +49,17 @@ class Posts extends Component {
     ClickFilterLike = () => {
         if (this.state.postdata) {
             let arr = this.state.postdata.sort((a, b) => b.like - a.like)
-            this.setState({ postdata: arr, showdata: arr.slice(0, 9), number: 9 })
+            this.setState({ postdata: arr, showdata: arr.slice(0, 3), number: 3 })
         }
     }
     ClickFilterRecent = () => {
         if (this.state.postdata) {
             let arr = this.state.postdata.sort((a, b) => b.id - a.id)
-            this.setState({ postdata: arr, showdata: arr.slice(0, 9), number: 9 })
+            this.setState({ postdata: arr, showdata: arr.slice(0, 3), number: 3 })
         }
     }
 
     ClickFilterLocation = () => {
-        // let arr = [];
-        // for(let i =0; i <this.state.saveAlldata.length; i++){
-        //     if(this.state.saveAlldata[i].address.indexOf(this.state.location) !== -1){
-        //         arr.push(this.state.saveAlldata[i]);
-        //     }
-        // }
         this.setState({ resultLoc: document.querySelector(".input-box").value })
     }
 
@@ -73,7 +67,7 @@ class Posts extends Component {
         this.setState({ list: !this.state.list })
     }
     ClickShowMore = () => {
-        this.setState({ number: this.state.number + 9, showdata: this.state.saveAlldata.slice(0, this.state.number + 9) })
+        this.setState({ number: this.state.number + 3, showdata: this.state.saveAlldata.slice(0, this.state.number + 3) })
     }
 
     handleInputChange = (e) => {
@@ -114,7 +108,7 @@ class Posts extends Component {
                         }) : null}
                     </div>
                     <div className="show-div">
-                        <a className='upload-button' href="/upload">업로드</a>
+                        {document.cookie ? <a className='upload-button' href="/upload">업로드</a> : <div className='upload-blank'></div>}
                         {this.state.postdata !== null && this.state.postdata.length > this.state.number
                             ? <button className="show-button" onClick={this.ClickShowMore}>더보기</button> : null}
                     </div>
