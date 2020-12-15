@@ -18,14 +18,14 @@ class Posts extends Component {
         if (this.state.resultLoc === null) {
             axios.get('http://localhost:8080/list', {
             }, { withCredentials: true })
-            .then((result) => {
-                this.setState({ saveAlldata: result.data.posts, postdata: result.data.posts, showdata: result.data.posts.slice(0, this.state.number) });
-            })
-            .catch(err => {
-                this.setState({
-                    error: '사진이 없습니다'
+                .then((result) => {
+                    this.setState({ saveAlldata: result.data.posts, postdata: result.data.posts, showdata: result.data.posts.slice(0, this.state.number) });
                 })
-            })
+                .catch(err => {
+                    this.setState({
+                        error: '사진이 없습니다'
+                    })
+                })
         }
     }
 
