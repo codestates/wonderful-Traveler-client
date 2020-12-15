@@ -16,6 +16,7 @@ class Postinfo extends Component {
                 },
             ],
             userdata: null,
+            like: false
         };
     }
 
@@ -30,6 +31,31 @@ class Postinfo extends Component {
             })
             .catch((err) => {
             })
+
+        axios.get('http://localhost:8080/user/likes/' + this.props.location.state.id,
+            { withCredentials: true }
+        )
+            .then((result) => {
+                this.setState({
+                    like: result.data
+                })
+            })
+            .catch((err) => {
+            })
+    }
+
+    toggleLike = () => {
+        axios.post('http://localhost:8080/user/likes', {
+            postId: this.props.location.state.id,
+      }, { withCredentials: true })
+          .then((result) => {
+              this.setState({like: result.data});
+          })
+          .catch(err => {
+              this.setState({
+                  error: '사진이 없습니다'
+              })
+          })
     }
 
     textChange = (e) => {
@@ -58,7 +84,7 @@ class Postinfo extends Component {
 
     render() {
         console.log(this.state)
-        console.log(this.props)
+        console.log(this.props.location.state.likes)
         return (
             <div>
                 <section className="topSection"></section>
@@ -66,7 +92,7 @@ class Postinfo extends Component {
                     <div className="edit-button">
                         {this.state.userdata ?
                             (this.state.userdata.id === this.props.location.state.user.id ?
-                                <Link className="goto-update"to={{
+                                <Link className="goto-update" to={{
                                     pathname: '/upload',
                                     state: {
                                         postdata: this.props.location.state
@@ -80,7 +106,7 @@ class Postinfo extends Component {
                         </div>
                     </div>
                     <div className="otherDiv">
-                        <LikeHeart />
+                        <LikeHeart like={this.state.like} toggleLike={this.toggleLike}/>
                     </div>
                 </section>
                 <section className="replyDiv">
