@@ -13,7 +13,7 @@ class Signup extends React.Component {
       error: "",
     };
   }
-  
+
   handleInputValue = (key) => (e) => {
     this.setState({ [key]: e.target.value });
   };
@@ -26,19 +26,19 @@ class Signup extends React.Component {
   }
 
   handleSignUp = () => {
-    this.setState({ error: ""});
+    this.setState({ error: "" });
     for (let key in this.state) {
       if (key !== 'error' && this.state[key] === "") {
         this.setState({
           error: '모든 항목을 채워주세요'
         })
         return;
-      } 
+      }
       else {
         this.setState({ error: "" });
       }
     }
-    
+
     if (this.state.password !== this.state.confirm) {
       this.setState({
         error: "모든 항목을 입력해 주십시오"
@@ -53,8 +53,8 @@ class Signup extends React.Component {
         .then(() => {
           this.props.handleSignUpSuccess();
         })
-        .then(()=>window.location.reload("/"))
-        .catch(err =>{
+        .then(() => window.location.reload("/"))
+        .catch(err => {
           this.setState({
             error: "존재하는 이메일 입니다"
           })
@@ -65,7 +65,7 @@ class Signup extends React.Component {
   render() {
     const { open } = this.props;
     return (
-        <div className="modalSignUp">
+      <div className="modalSignUp">
         {open ? (
           <div className="SignUpBody">
             <div className="SignUpInner">

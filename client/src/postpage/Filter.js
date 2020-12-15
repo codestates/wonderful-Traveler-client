@@ -6,19 +6,18 @@ const Filter = (props) => {
     let recommandLocation = [];
     if (props.state.saveAlldata !== null) {
         for (let i = 0; i < props.state.saveAlldata.length; i++) {
-            if(props.state.saveAlldata[i].address !== null){
+            if (props.state.saveAlldata[i].address !== null) {
                 recommand.push(props.state.saveAlldata[i].address);
             }
         }
         for (let j = 0; j < recommand.length; j++) {
-            if (recommand[j].indexOf(props.state.location) !== -1 ) {
+            if (recommand[j].indexOf(props.state.location) !== -1) {
                 recommandLocation.push(recommand[j]);
             }
         }
     }
 
     let rec = [...new Set(recommandLocation)].slice(0, 5);
-    console.log(rec);
     return (
         <div className="Filter">
             <div className="form-control">

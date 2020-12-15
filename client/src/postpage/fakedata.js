@@ -1,12 +1,12 @@
 export const fakedata = [
     {
         id: 1,
-        title: "자신의 역할1",
-        textValue: '<p><br></p><h1><span class="ql-size-huge ql-font-monospace">안녕하세요</span></h1>',
+        title: "TEST!",
+        textValue: '<p class="ql-align-center"><span class="ql-size-huge ql-font-monospace">test!</span></p><p class="ql-align-center"><br></p><p class="ql-align-center"><img src="https://i.ibb.co/Jtybpv6/image.png" width="446" style=""></p><p class="ql-align-center">테스트를 처음부터 크기를 90% 아닌 80% 를 사용한다.</p>',
         location: "서울",
         address: "서울시 강동구 상일동",
         user: '1dw2',
-        thumbnail: "https://i.ibb.co/SrpTKPV/logo512.png",
+        thumbnail: "https://i.ibb.co/Jtybpv6/image.png",
         like: 3,
         create_at: '2020-01-01' 
     },

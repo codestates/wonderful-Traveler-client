@@ -10,11 +10,11 @@ class SetAvatar extends Component {
   }
 
   componentDidMount = () => {
-    axios.get('http://localhost:8080/user/info', 
+    axios.get('http://localhost:8080/user/info',
       { withCredentials: true }
-      )
-      .then((result)=>{
-          this.setState({
+    )
+      .then((result) => {
+        this.setState({
           view: result.data.picture
         })
       })
@@ -54,16 +54,16 @@ class SetAvatar extends Component {
     console.log(this.props.userinfo)
     return (
       <div className="avatar-upload">
-          <div>
-            <h3>프로필 사진 변경</h3>
-            <div className="avatar">
-              {this.state.view ? <img src={this.state.view} className="avatar-img" alt="img" /> : <div>없음</div>}
-            </div>
-            <div className="btn">
-              <input type="file" name="file" accept="image/*" onChange={this.handleInputValue} className="input-bn"></input>
-              <button className="cbtn" disabled={this.state.url ? false : "disabled"} onClick={this.handleUpdate}>변경</button>
-            </div>
+        <div>
+          <h3>프로필 사진 변경</h3>
+          <div className="avatar">
+            {this.state.view ? <img src={this.state.view} className="avatar-img" alt="img" /> : <div>없음</div>}
           </div>
+          <div className="btn">
+            <input type="file" name="file" accept="image/*" onChange={this.handleInputValue} className="input-bn"></input>
+            <button className="cbtn" disabled={this.state.url ? false : "disabled"} onClick={this.handleUpdate}>변경</button>
+          </div>
+        </div>
       </div>
     );
   }

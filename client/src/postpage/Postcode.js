@@ -19,8 +19,6 @@ const Postcode = (props) => {
             document.querySelector('#address').value = fullAddress;
             props.close();
         }
-
-        console.log(fullAddress);  // e.g. '서울 성동구 왕십리로2길 20 (성수동1가)'
     }
     return (
         <div>
@@ -29,7 +27,7 @@ const Postcode = (props) => {
                     <div className="signModal">
                         <span className="close" onClick={props.close}>
                             X
-              </span>
+                        </span>
                         <div className="modalDefault" >
                             <DaumPostcode onComplete={handleComplete} />
                         </div>
