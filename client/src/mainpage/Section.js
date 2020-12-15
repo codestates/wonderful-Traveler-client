@@ -59,7 +59,7 @@ class Section extends Component {
                         <span>
                             <img data-aos='fade-left' src="../mainSection4.jpg" alt="img"></img>
                         </span>
-                        </div>
+                    </div>
                 </section>
             </>
         );

@@ -14,11 +14,11 @@ class SetPassword extends Component {
   }
 
   componentDidMount = () => {
-    axios.get('http://localhost:8080/user/info', 
+    axios.get('http://localhost:8080/user/info',
       { withCredentials: true }
-      )
-      .then((result)=>{
-          this.setState({
+    )
+      .then((result) => {
+        this.setState({
           data: result.data
         })
       })
@@ -69,24 +69,24 @@ class SetPassword extends Component {
   render() {
     return (
       <div className="set-password">
-          <div>
-            <h3>유저 정보</h3>
-            {this.state.data ? 
+        <div>
+          <h3>유저 정보</h3>
+          {this.state.data ?
             <div className="user-inf">
               <div className="user-em-id">{`이메일:  ${this.state.data.email}`}</div>
               <div className="user-em-id">{`아이디:  ${this.state.data.username}`}</div>
             </div> : null}
-            <h3>비밀번호 변경</h3>
-            <div className="change-pw">
-              <input className="pwchanges" type="password" placeholder="현재 비밀번호" onChange={this.handleInputValue("oldPassword")}></input>
-              <input className="pwchanges" type="password" placeholder="변경 비밀번호" onChange={this.handleInputValue("newPassword")}></input>
-              <input className="pwchanges" type="password" placeholder="변경 비밀번호" onChange={this.handleInputValue("confirm")}></input>
-            </div>
-            <div>
-              <button onClick={this.handleChangePassword} className="change" >변경</button>
-              {this.state.error ? <div className="alert-box">{this.state.error}</div> : ''}
-            </div>
+          <h3>비밀번호 변경</h3>
+          <div className="change-pw">
+            <input className="pwchanges" type="password" placeholder="현재 비밀번호" onChange={this.handleInputValue("oldPassword")}></input>
+            <input className="pwchanges" type="password" placeholder="변경 비밀번호" onChange={this.handleInputValue("newPassword")}></input>
+            <input className="pwchanges" type="password" placeholder="변경 비밀번호" onChange={this.handleInputValue("confirm")}></input>
           </div>
+          <div className="btn">
+            <button onClick={this.handleChangePassword} className="change" >변경</button>
+            {this.state.error ? <div className="alert-box">{this.state.error}</div> : ''}
+          </div>
+        </div>
       </div>
     );
   }
