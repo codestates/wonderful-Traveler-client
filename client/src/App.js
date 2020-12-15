@@ -19,6 +19,7 @@ class App extends Component {
     signinOpen: false,
     signupOpen: false,
   }
+
   componentDidMount = () => {
     axios.get('http://localhost:8080/user/info',
       { withCredentials: true }
@@ -77,6 +78,7 @@ class App extends Component {
   closeSignUp = () => {
     this.setState({ signupOpen: false });
   };
+
 
   render() {
     return (

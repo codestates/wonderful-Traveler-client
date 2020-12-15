@@ -1,5 +1,6 @@
 import './Posts.css';
 import { Component } from 'react';
+import { fakedata } from './fakedata';
 import Postlist from "./Postlist";
 import Filter from "./Filter";
 import axios from 'axios';
@@ -15,6 +16,23 @@ class Posts extends Component {
         resultLoc: null,
     }
     componentDidMount = () => {
+        // this.setState({ saveAlldata: fakedata, postdata: fakedata, showdata: fakedata.slice(0,this.state.number) })
+        // if (this.state.resultLoc.length !== 0) {
+        //     axios.post('http://localhost:8080/list', {
+        //         // likeuser: null,
+        //         // userid: null,
+        //         address: this.state.resultLoc,
+        //     }, { withCredentials: true })
+        //         .then((result) => {
+        //             this.setState({ postdata: result.data, showdata: result.data.slice(0, 3), number: 3 });
+        //         })
+        //         .catch(err => {
+        //             this.setState({
+        //                 error: '사진이 없습니다'
+        //             })
+        //         })
+        // }
+        // else {
         if (this.state.resultLoc === null) {
             axios.get('http://localhost:8080/list', {
             }, { withCredentials: true })

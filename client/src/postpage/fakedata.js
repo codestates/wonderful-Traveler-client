@@ -8,18 +8,18 @@ export const fakedata = [
         user: '1dw2',
         thumbnail: "https://i.ibb.co/Jtybpv6/image.png",
         like: 3,
-        create_at: '2020-01-01' 
+        createdAt: '2020-01-01' 
     },
     {
         id: 2,
-        title: "자신의2",
+        title: "TEST2!",
         textValue: '<p>asddddd</p><p>yeap</p><p><img src="https://i.ibb.co/Lk3hjrL/logo192.png"></p><h2><span class="ql-size-huge ql-font-serif">a thigasdc</span></h2><h1><span class="ql-size-huge ql-font-monospace">안녕하세요</span></h1>',
         location: "서울",
         address: "강동구 상일동",
         user: '100wodud',
         thumbnail: "https://i.ibb.co/TKzSFBB/camp.gif",
         like: 2,
-        create_at: '2020-01-2' 
+        createdAt: '2020-01-2' 
     },
     {
         id: 3,
@@ -27,10 +27,10 @@ export const fakedata = [
         textValue: "<p>​</p>",
         location: "경기도",
         address: "강동구 2",
-        user: 'null',
+        user: 'eifksoek',
         thumbnail: "https://i.ibb.co/qF2QmSV/Me.png",
         like: 10,
-        create_at: '2020-01-13' 
+        createdAt: '2020-01-13' 
     },
     {
         id: 6,

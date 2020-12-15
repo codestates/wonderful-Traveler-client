@@ -200,6 +200,10 @@ class Upload extends Component {
         this.setState({ open: false })
     }
     render() {
+<<<<<<< HEAD
+        console.log(this.state)
+=======
+>>>>>>> fbee5fd549b515edd05372cec736dfc5cb7b5900
         return (
             <div>
                 <section className="upload-top">
