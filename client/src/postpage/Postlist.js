@@ -8,15 +8,14 @@ class Postlist extends Component {
         date: this.props.postdata.createdAt
     }
     // componentDidMount = () => {
-    //     if(this.props.postdata){
+    //     if (this.props.postdata) {
     //         let date = this.props.postdata.createdAt
     //         let num = date.indexOf('T');
     //         let newDate = date.slice(0, num);
-    //         this.setState({date: newDate})
+    //         this.setState({ date: newDate })
     //     }
     // }
     render() {
-        console.log(this.props.postdata.userId)
         return (
             <div id='make-hover'>
                 <Link to={{

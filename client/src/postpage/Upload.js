@@ -26,7 +26,7 @@ class Upload extends Component {
         }
     }
     componentDidMount = () => {
-        if(this.props.location.state!== undefined){
+        if (this.props.location.state !== undefined) {
             this.setState({
                 title: this.props.location.state.postdata.title,
                 textValue: this.props.location.state.postdata.text,
@@ -35,24 +35,35 @@ class Upload extends Component {
             document.querySelector('.upload-title').value = this.props.location.state.postdata.title;
             document.querySelector('.ql-editor').innerHTML = this.props.location.state.postdata.text;
             document.querySelector('.inputbox').value = this.props.location.state.postdata.address
-        }else {
+        } else {
             this.setState({
                 title: null,
                 textValue: null,
                 address: null,
             })
         }
-        
+
     }
     handleTitleChange = (e) => {
         this.setState({ title: e.target.value });
     };
     handleEdit = () => {
         let text = this.state.textValue;
-        let num = text.indexOf('<img src=');
-        let front = text.slice(num);
-        let end = front.indexOf('>');
-        let thumbnail = front.slice(10, end - 1);
+        let thumbnail = null;
+        let front = null;
+        let end = null;
+        if (text === null) {
+            thumbnail = null;
+        } else {
+            let num = text.indexOf('<img src=');
+            if (num !== -1) {
+                front = text.slice(num);
+                end = front.indexOf('>');
+                thumbnail = front.slice(10, end - 1).split(' ')[0];
+            } else {
+                thumbnail = null;
+            }
+        }
         let address = document.querySelector('#address').value;
         let location = address.split(' ');
         this.setState({ thumbnail: thumbnail, address: address, location: location[0] });
@@ -82,16 +93,36 @@ class Upload extends Component {
                     })
             }
         }
-        sendSever();
-        console.log(this.state)
+        if (this.state.title === null) {
+            this.setState({
+                error: '제목을 입력해주세요'
+            })
+        } else if (this.state.textValue === null) {
+            this.setState({
+                error: '내용을 입력해주세요'
+            })
+        } else {
+            sendSever();
+        }
     }
 
     handleSubmit = () => {
         let text = this.state.textValue;
-        let num = text.indexOf('<img src=');
-        let front = text.slice(num);
-        let end = front.indexOf('>');
-        let thumbnail = front.slice(10, end - 1);
+        let thumbnail = null;
+        let front = null;
+        let end = null;
+        if (text === null) {
+            thumbnail = null;
+        } else {
+            let num = text.indexOf('<img src=');
+            if (num !== -1) {
+                front = text.slice(num);
+                end = front.indexOf('>');
+                thumbnail = front.slice(10, end - 1).split(' ')[0];
+            } else {
+                thumbnail = null;
+            }
+        }
         let address = document.querySelector('#address').value;
         let location = address.split(' ');
         this.setState({ thumbnail: thumbnail, address: address, location: location[0] });
@@ -115,13 +146,23 @@ class Upload extends Component {
                     })
                     .catch(err => {
                         this.setState({
-                            error: '모든 칸을 입력해주세요'
+                            error: '요청에 실패하였습니다'
                         })
                     })
             }
         }
-        sendSever();
-        console.log(this.state.textValue)
+        if (this.state.title === null) {
+            this.setState({
+                error: '제목을 입력해주세요'
+            })
+        } else if (this.state.textValue === null) {
+            this.setState({
+                error: '내용을 입력해주세요'
+            })
+        } else {
+            sendSever();
+        }
+        console.log(this.state)
     }
 
     handleChange = (value) => {
@@ -159,7 +200,10 @@ class Upload extends Component {
         this.setState({ open: false })
     }
     render() {
+<<<<<<< HEAD
         console.log(this.state)
+=======
+>>>>>>> fbee5fd549b515edd05372cec736dfc5cb7b5900
         return (
             <div>
                 <section className="upload-top">
@@ -206,8 +250,11 @@ class Upload extends Component {
                         </div>
                         <Postcode open={this.state.open} close={this.modalClose} />
                         {this.props.location.state === undefined ?
-                        <button className="submit-button" onClick={this.handleSubmit}>업로드</button> :
-                        <button className="submit-button" onClick={this.handleEdit}>수정</button>}
+                            <button className="submit-button" onClick={this.handleSubmit}>업로드</button> :
+                            <button className="submit-button" onClick={this.handleEdit}>수정</button>}
+                    </div>
+                    <div className="error-msg">
+                        {this.state.error.length === 0 ? <div></div> : <div>{this.state.error}</div>}
                     </div>
                 </section>
             </div>
