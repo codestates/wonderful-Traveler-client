@@ -10,7 +10,7 @@ class Posts extends Component {
         showdata: null,
         saveAlldata: null,
         list: true,
-        number: 3,
+        number: 9,
         location: '',
         resultLoc: null,
     }
@@ -32,13 +32,13 @@ class Posts extends Component {
     ClickFilterLike = () => {
         if (this.state.postdata) {
             let arr = this.state.postdata.sort((a, b) => b.likes - a.likes)
-            this.setState({ postdata: arr, showdata: arr.slice(0, 3), number: 3 })
+            this.setState({ postdata: arr, showdata: arr.slice(0, 9), number: 9 })
         }
     }
     ClickFilterRecent = () => {
         if (this.state.postdata) {
             let arr = this.state.postdata.sort((a, b) => b.id - a.id)
-            this.setState({ postdata: arr, showdata: arr.slice(0, 3), number: 3 })
+            this.setState({ postdata: arr, showdata: arr.slice(0, 9), number: 9 })
         }
     }
 
@@ -47,7 +47,7 @@ class Posts extends Component {
             address: document.querySelector(".input-box").value,
         }, { withCredentials: true })
             .then((result) => {
-                this.setState({ postdata: result.data.posts, showdata: result.data.posts.slice(0, 3), number: 3, resultLoc: document.querySelector(".input-box").value });
+                this.setState({ postdata: result.data.posts, showdata: result.data.posts.slice(0, 9), number: 9, resultLoc: document.querySelector(".input-box").value });
             })
             .catch(err => {
                 this.setState({
@@ -60,7 +60,7 @@ class Posts extends Component {
         this.setState({ list: !this.state.list })
     }
     ClickShowMore = () => {
-        this.setState({ number: this.state.number + 3, showdata: this.state.saveAlldata.slice(0, this.state.number + 3) })
+        this.setState({ number: this.state.number + 9, showdata: this.state.saveAlldata.slice(0, this.state.number + 9) })
     }
 
     handleInputChange = (e) => {

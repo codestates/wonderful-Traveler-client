@@ -23,7 +23,7 @@ class Postlist extends Component {
                     state: {
                         id: this.props.postdata.id,
                         address: this.props.postdata.address,
-                        user: this.props.postdata.userId,
+                        user: this.props.postdata.user,
                         text: this.props.postdata.textValue,
                         title: this.props.postdata.title,
                         like: this.props.postdata.like
@@ -41,7 +41,7 @@ class Postlist extends Component {
                             </div>
                             <div className="post-user">
                                 <div>
-                                    <div className="user">{this.props.postdata.userId.username}</div>
+                                    <div className="user">{this.props.postdata.user.username}</div>
                                 </div>
                                 <div>
                                     <div className="create-at">{this.state.date}</div>
