@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import ReactHtmlParser from 'react-html-parser';
 import LikeHeart from './LikeHeart';
 
+// add comment 완료 -> cookie ,string / postid, article로 작업이 완료
+
 class Postinfo extends Component {
     constructor() {
         super();
@@ -12,6 +14,7 @@ class Postinfo extends Component {
             replies: [
                 {
                     text: "",
+                    postId: "",
                 },
             ],
             userdata: null,
@@ -94,13 +97,12 @@ class Postinfo extends Component {
                                 value={this.state.newReply}
                             />
                         </div>
-                        <div>
-                        <div className="textbox">
+                        <div className= "commentBox">
+                        <div className= "textBox">
                             {this.state.replies.map((el) => (
-                            <div className="textboxList">
+                            <div className="textBoxList">
                                 <div className="article">{el.article}</div>
-                                {/* <div className="userId">{el.userId}</div>
-                                <div className="id">{el.id}</div> */}
+                                {/* <div className="postId">{el.postId}</div> */}
                             </div>
                             ))}
                         </div>

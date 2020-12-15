@@ -1,10 +1,27 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import './LikeHeart.css';
+
+// 붙여야할 것 cookie / string , postid / number -> true or false로 작업
 
 class LikeHeart extends Component {
     state = {
         like: false,
     }
+
+    // componentDidmount = () => {
+    //     axios.post('http://localhost:8080/postid/', {
+    //         address: document.querySelector("").value,
+    //     }, { withCredentials: true })
+    //         .then((result) => {
+    //             this.setState({});
+    //         })
+    //         .catch(err => {
+    //             this.setState({
+    //                 error: error
+    //             })
+    //         })
+    // }
 
     toggleLike = (state) => {
         this.setState({
@@ -12,29 +29,6 @@ class LikeHeart extends Component {
             // this.props.like.data[0]
         });
     }
-
-    // getLikeInfo = async function () {
-    //     const { userId, login } = this.props;
-        
-    //     // 로그인 된 상태에서 만 실행해야 한다.
-    //     if(login) {
-    //         const postId = this.props.match.params.data;
-    //         const obj = { userId : userId, postId: postId }
-
-    //         const getData = await axios('users/like', {
-    //             method: 'POST',
-    //             headers: new Headers(),
-    //             data: obj
-    //         })
-
-    //         if(getData.data[0]) {
-    //             this.setState({
-    //                 likeExist : true,
-    //                 likeNum : getData.data[0].likes
-    //             })
-    //         }
-    //     }
-    // };
     
     render() {
         const changeColour = this.state.like ? "red" : "grey"
@@ -44,7 +38,7 @@ class LikeHeart extends Component {
                 <button className="heartBtn"
                 onClick={this.toggleLike}>
                     <i className="fas fa-heart fa-lg" style={{ color: 
-                    changeColour}}>{this.state.likeNum}</i>
+                    changeColour}}>{}</i>
                 </button>
             </div>
         );

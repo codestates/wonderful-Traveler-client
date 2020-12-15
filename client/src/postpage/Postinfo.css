@@ -70,17 +70,24 @@
     outline: none;
 }
 
+.commentBox {
+    width: 60%;
+    margin: auto;
+}
+
+.textBox {
+    padding: 1px;
+}
+
 .article {
     position: relative;
     list-style: none;
-    margin-left : 20%;
     text-align: left;
     outline: none;
+    border-bottom: 1px solid #2370a5;
+    padding: 5px;
+    margin-bottom: 5px;
 }
-
-
-
-
 
 #replySubmitButton {
     position: relative;
@@ -95,7 +102,6 @@
     font-weight: bold;
     font-size: 15px;
     outline: none;
-
 } 
 
 .ql-align-center {
