@@ -30,20 +30,19 @@ class SignIn extends React.Component {
       });
     } else {
       this.setState({ error: '' });
-      axios.post("ec2-15-164-38-202.ap-northeast-2.compute.amazonaws.com/signin", {
+      axios.post("http://localhost:8080/signin", {
         email: this.state.email,
         password: this.state.password
-      }, {withCredentials: true})
-      .then((result)=>{
-        console.log(result);
-        console.log('로그인완료');
-        this.props.handleSigninSuccess();
-      })
-      .catch(err => {
-        this.setState({
-          error: '이메일/비밀번호를 확인해주십시오'
+      }, { withCredentials: true })
+        .then((result) => {
+          this.props.handleSigninSuccess();
         })
-      })
+        .then(() => window.location.reload("/"))
+        .catch(err => {
+          this.setState({
+            error: '이메일/비밀번호를 확인해주십시오'
+          })
+        })
 
     }
   }
@@ -72,14 +71,3 @@ class SignIn extends React.Component {
 }
 
 export default SignIn;
-
-
-
-// {/* <div>
-// {open ? (
-//   <div className="modalBody">
-//     <div className="signModal">
-//       {/* <span className="close" onClick={this.handleClose}>
-//         X
-//       </span> */}   // <div className="modalDefault" >
-//       //   <h1>Sign In</h1> */}

@@ -3,10 +3,17 @@ import { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 class Postlist extends Component {
-
-    // componentDidMount = ()=>{
-
-    // }
+    state = {
+        date: this.props.postdata.createdAt
+    }
+    componentDidMount = () => {
+        if (this.props.postdata) {
+            let date = this.props.postdata.createdAt
+            let num = date.indexOf('T');
+            let newDate = date.slice(0, num);
+            this.setState({ date: newDate })
+        }
+    }
     render() {
         return (
             <div id='make-hover'>
@@ -18,31 +25,32 @@ class Postlist extends Component {
                         user: this.props.postdata.user,
                         text: this.props.postdata.textValue,
                         title: this.props.postdata.title,
-                        like: this.props.postdata.like
+                        likes: this.props.postdata.likes
                     },
                 }}>
                     {this.props.list ?
                         <div>
                             <div className="post-lists">
                                 <div>
-                                <div className="title">{this.props.postdata.title}</div>
+                                    <div className="title">{this.props.postdata.title}</div>
                                 </div>
                                 <div>
-                                <div className="location">{this.props.postdata.address}</div>
+                                    <div className="location">{this.props.postdata.address}</div>
                                 </div>
                             </div>
                             <div className="post-user">
                                 <div>
-                                <div className="user">{this.props.postdata.user}</div>
+                                    <div className="user">{this.props.postdata.user.username}</div>
                                 </div>
                                 <div>
-                                <div className="create-at">{this.props.postdata.create_at}</div>
+                                    <div className="create-at">{this.state.date}</div>
                                 </div>
                             </div>
                         </div> :
                         <div className="postlist">
                             <div className="thumbnail-div">
-                                <img className="thumbnail" src={this.props.postdata.thumbnail} alt="img" />
+                                {this.props.postdata.thumbnail === null ? <div className="thumbnail">이미지없음</div> :
+                                    <img className="thumbnail" src={this.props.postdata.thumbnail} alt="img" />}
                             </div>
                             <div className="infomation">
                                 <div className="title">{this.props.postdata.title}</div>

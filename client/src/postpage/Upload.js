@@ -4,9 +4,11 @@ import axios from 'axios';
 import { IMGBB_API_KEY } from '../config/config';
 import ReactQuill, { Quill } from 'react-quill';
 import { ImageUpload } from 'quill-image-upload';
+import { ImageResize } from 'quill-image-resize-module';
 import 'react-quill/dist/quill.snow.css';
 import Postcode from './Postcode';
 
+Quill.register('modules/ImageResize', ImageResize);
 Quill.register('modules/imageUpload', ImageUpload);
 
 class Upload extends Component {
@@ -19,31 +21,152 @@ class Upload extends Component {
             address: null,
             thumbnail: '',
             user: null,
-            open: false
+            open: false,
+            error: ''
         }
     }
+    componentDidMount = () => {
+        if (this.props.location.state !== undefined) {
+            this.setState({
+                title: this.props.location.state.postdata.title,
+                textValue: this.props.location.state.postdata.text,
+                address: this.props.location.state.postdata.address,
+            })
+            document.querySelector('.upload-title').value = this.props.location.state.postdata.title;
+            document.querySelector('.ql-editor').innerHTML = this.props.location.state.postdata.text;
+            document.querySelector('.inputbox').value = this.props.location.state.postdata.address
+        } else {
+            this.setState({
+                title: null,
+                textValue: null,
+                address: null,
+            })
+        }
 
+    }
     handleTitleChange = (e) => {
         this.setState({ title: e.target.value });
     };
-
-    handleSubmit = () => {
-        console.log(this.state.textValue)
-    }
-
-    handleChange = (value) => {
-        this.setState({ textValue: value })
+    handleEdit = () => {
+        let text = this.state.textValue;
+        let thumbnail = null;
+        let front = null;
+        let end = null;
+        if (text === null) {
+            thumbnail = null;
+        } else {
+            let num = text.indexOf('<img src=');
+            if (num !== -1) {
+                front = text.slice(num);
+                end = front.indexOf('>');
+                thumbnail = front.slice(10, end - 1).split(' ')[0];
+            } else {
+                thumbnail = null;
+            }
+        }
+        let address = document.querySelector('#address').value;
+        let location = address.split(' ');
+        this.setState({ thumbnail: thumbnail, address: address, location: location[0] });
+        let sendSever = () => {
+            if (!this.state.title) {
+                this.setState({
+                    error: '제목을 입력하세요', click: true
+                });
+            } else {
+                this.setState({ error: '' });
+                axios.post("http://localhost:8080/post/update", {
+                    id: this.props.location.state.postdata.id,
+                    title: this.state.title,
+                    textValue: this.state.textValue,
+                    location: this.state.location,
+                    address: document.querySelector('#address').value,
+                    thumbnail: thumbnail
+                }, { withCredentials: true })
+                    .then((result) => {
+                        this.props.history.push('/')
+                        // `/post/info/${result.data.id}`
+                    })
+                    .catch(err => {
+                        this.setState({
+                            error: '모든 칸을 입력해주세요'
+                        })
+                    })
+            }
+        }
+        if (this.state.title === null) {
+            this.setState({
+                error: '제목을 입력해주세요'
+            })
+        } else if (this.state.textValue === null) {
+            this.setState({
+                error: '내용을 입력해주세요'
+            })
+        } else {
+            sendSever();
+        }
     }
 
     handleSubmit = () => {
         let text = this.state.textValue;
-        let num = text.indexOf('<img src=');
-        let front = text.slice(num);
-        let end = front.indexOf('>');
-        let thumbnail = front.slice(10, end - 1);
+        let thumbnail = null;
+        let front = null;
+        let end = null;
+        if (text === null) {
+            thumbnail = null;
+        } else {
+            let num = text.indexOf('<img src=');
+            if (num !== -1) {
+                front = text.slice(num);
+                end = front.indexOf('>');
+                thumbnail = front.slice(10, end - 1).split(' ')[0];
+            } else {
+                thumbnail = null;
+            }
+        }
         let address = document.querySelector('#address').value;
         let location = address.split(' ');
-        this.setState({ thumbnail: thumbnail, address: address, location: location[0] })
+        this.setState({ thumbnail: thumbnail, address: address, location: location[0] });
+        let sendSever = () => {
+            if (!this.state.title) {
+                this.setState({
+                    error: '제목을 입력하세요', click: true
+                });
+            } else {
+                this.setState({ error: '' });
+                axios.post("http://localhost:8080/post/upload", {
+                    title: this.state.title,
+                    textValue: this.state.textValue,
+                    location: this.state.location,
+                    address: document.querySelector('#address').value,
+                    thumbnail: thumbnail
+                }, { withCredentials: true })
+                    .then((result) => {
+                        this.props.history.push('/')
+                        // `/post/info/${result.data.id}`
+                    })
+                    .catch(err => {
+                        this.setState({
+                            error: '요청에 실패하였습니다'
+                        })
+                    })
+            }
+        }
+        if (this.state.title === null) {
+            this.setState({
+                error: '제목을 입력해주세요'
+            })
+        } else if (this.state.textValue === null) {
+            this.setState({
+                error: '내용을 입력해주세요'
+            })
+        } else {
+            sendSever();
+        }
+        console.log(this.state)
+    }
+
+    handleChange = (value) => {
+        this.setState({ textValue: value })
     }
 
     imageHandler() {
@@ -77,10 +200,9 @@ class Upload extends Component {
         this.setState({ open: false })
     }
     render() {
-        console.log(this.state)
         return (
             <div>
-                <section className="st-section">
+                <section className="upload-top">
                     <div></div>
                 </section>
                 <section className="upload-section">
@@ -94,13 +216,16 @@ class Upload extends Component {
                                 }}
                                 onChange={this.handleChange}
                                 modules={{
+                                    ImageResize: {
+                                        displaySize: true
+                                    },
                                     toolbar: {
                                         container: [
                                             [{ font: [] }],
                                             [{ size: [] }],
                                             ['bold', 'italic', 'underline', 'strike', 'blockquote'],
                                             [{ 'color': [] }, { 'background': [] }],
-                                            [{ list: 'ordered' }, { list: 'bullet' }],
+                                            [{ align: '' }, { align: 'center' }, { align: 'right' }, { align: 'justify' }],
                                             ['link', 'image', 'video'],
                                             ['clean']
                                         ],
@@ -120,7 +245,12 @@ class Upload extends Component {
                             </div>
                         </div>
                         <Postcode open={this.state.open} close={this.modalClose} />
-                        <button className="submit-button" onClick={this.handleSubmit}>업로드</button>
+                        {this.props.location.state === undefined ?
+                            <button className="submit-button" onClick={this.handleSubmit}>업로드</button> :
+                            <button className="submit-button" onClick={this.handleEdit}>수정</button>}
+                    </div>
+                    <div className="error-msg">
+                        {this.state.error.length === 0 ? <div></div> : <div>{this.state.error}</div>}
                     </div>
                 </section>
             </div>

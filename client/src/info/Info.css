@@ -1,4 +1,4 @@
-.st-section {
+.inf-section {
     position: relative;
     display: inline-block;
     background-image: url('../mainpage/first-section.jpg');
@@ -9,7 +9,6 @@
     font-size: 50px;
     color: white;
     line-height: 300px;
-    padding-left: 200px;
   }
 
 .infomation-section {
@@ -73,5 +72,5 @@
 }
 
 .camefrom{
-  margin-top: 80px
+  margin-top: 150px
 }

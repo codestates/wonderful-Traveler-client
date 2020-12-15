@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { IMGBB_API_KEY } from '../config/config';
+
 class SetAvatar extends Component {
   state = {
     url: "",
@@ -9,9 +10,23 @@ class SetAvatar extends Component {
   }
 
   componentDidMount = () => {
-    this.setState({
-    //   view: this.props.info.userinfo.url,
-    })
+    axios.get('http://localhost:8080/user/info',
+      { withCredentials: true }
+    )
+      .then((result) => {
+        this.setState({
+          view: result.data.picture
+        })
+      })
+  }
+
+  handleUpdate = () => {
+    axios.post("http://localhost:8080/user/info",
+      { picture: this.state.url },
+      { withCredentials: true })
+      .then(() => {
+        alert('프로필 이미지가 업데이트 되었습니다.');
+      })
   }
 
   handleInputValue = (event) => {
@@ -29,23 +44,25 @@ class SetAvatar extends Component {
     uploadImage(event.target.files[0])
       .then(res => {
         this.setState({
-           url: res.data.data.url,
-           view: res.data.data.url
+          url: res.data.data.url,
+          view: res.data.data.url
         })
-        console.log(this.state)
       })
   }
-  
+
   render() {
+    console.log(this.props.userinfo)
     return (
       <div className="avatar-upload">
-        <h3>프로필 사진 변경</h3>
-        <div className="avatar">
-          {this.state.view ? <img src={this.state.view} className="avatar-img" alt="img" /> : <div>없음</div>}
-        </div>
-        <div className="btn">
-          <input type="file" name="file" accept="image/*" onChange={this.handleInputValue} className="input-bn"></input>
-          <button className="cbtn" disabled={this.state.url ? false : "disabled"} >변경</button>
+        <div>
+          <h3>프로필 사진 변경</h3>
+          <div className="avatar">
+            {this.state.view ? <img src={this.state.view} className="avatar-img" alt="img" /> : <div>없음</div>}
+          </div>
+          <div className="btn">
+            <input type="file" name="file" accept="image/*" onChange={this.handleInputValue} className="input-bn"></input>
+            <button className="cbtn" disabled={this.state.url ? false : "disabled"} onClick={this.handleUpdate}>변경</button>
+          </div>
         </div>
       </div>
     );
