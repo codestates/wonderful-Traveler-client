@@ -20,6 +20,26 @@
     margin: auto;
 }
 
+.edit-button{
+    height: 50px;
+    line-height: 50px;
+    float: right;
+}
+.goto-update{
+    z-index: 3;
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid rgb(176, 176, 176);
+    background-color: rgb(255, 255, 255);
+    outline: none;
+    border-radius: 30px;
+    color: rgb(34, 34, 34);
+    position: relative;
+    padding: 8px 16px;
+    font-size: 16px;
+    line-height: 16px;
+}
+
 .infoPost {
     width: 100%;
     height: auto;
@@ -30,7 +50,7 @@
     margin-top: 50px;
     border-bottom: 3px solid #2370a5;
     position: relative;
-    font-size: 80px;
+    font-size: 56px;
 }
 
 .postText {
