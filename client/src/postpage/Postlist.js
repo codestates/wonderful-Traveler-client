@@ -25,7 +25,7 @@ class Postlist extends Component {
                         user: this.props.postdata.user,
                         text: this.props.postdata.textValue,
                         title: this.props.postdata.title,
-                        likes: this.props.postdata.likes
+                        likes: this.props.postdata.likes,
                     },
                 }}>
                     {this.props.list ?

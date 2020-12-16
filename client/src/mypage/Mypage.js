@@ -45,6 +45,21 @@ class Mypage extends Component {
           })
   }
 
+  handleLike = () => {
+    axios.post('http://localhost:8080/posts/search', {
+      likeuser: this.state.userinfo.id,
+  }, { withCredentials: true })
+      .then((result) => {
+        console.log(result)
+          this.setState({ showdata: result.data.posts , upload: true, profile: false, liked:false});
+      })
+      .catch(err => {
+          this.setState({
+              error: '사진이 없습니다'
+          })
+      })
+  }
+
   render() {
     console.log(this.state)
     return (
@@ -55,7 +70,7 @@ class Mypage extends Component {
             <section className="mydata">
                 <div>
                   <span className='tab-title' onClick={this.handleProfile}>프로필</span>
-                  <span className='tab-title'>좋아요</span>
+                  <span className='tab-title' onClick={this.handleLike}>좋아요</span>
                   <span className='tab-title' onClick={this.handleUpload}>작성한 게시물</span>
                 </div>
             </section>
