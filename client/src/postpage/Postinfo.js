@@ -38,14 +38,14 @@ class Postinfo extends Component {
             })
             .catch((err) => {
             })
-        this.setState({likenum: this.props.location.state.likes})
         
         axios.get('http://localhost:8080/post/' + this.props.location.state.id,
         { withCredentials: true }
     )
         .then((result) => {
             this.setState({
-                data: result.data
+                data: result.data,
+                likenum: result.data.result.likes
             })
         })
         .catch((err) => {
@@ -59,11 +59,7 @@ class Postinfo extends Component {
       }, { withCredentials: true })
           .then((result) => {
               this.setState({like: result.data});
-              if(result.data === true){
-                this.setState({likenum: this.state.likenum+1})
-              } else {
-                this.setState({likenum: this.state.likenum-1})
-              }
+              window.location.reload();
           })
           .catch(err => {
               this.setState({

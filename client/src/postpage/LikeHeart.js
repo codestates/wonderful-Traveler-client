@@ -24,7 +24,7 @@ class LikeHeart extends Component {
                             <div>
                             {this.props.userdata.picture !== null ?
                             <img className="post-userpic" src={this.props.userdata.picture} alt="img" /> 
-                            : <img className="post-userpic" src="https://cdn.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png" alt="img"/>}
+                            : <img className="post-userpic" src="../../blankuser.png" alt="img"/>}
                             <div className="post-username">{this.props.userdata.username}</div>
                                 </div>
                         </div>

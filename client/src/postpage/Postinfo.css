@@ -54,7 +54,7 @@
 }
 
 .postText {
-    margin-top: 30px;
+    margin-top: 50px;
     margin-left: 30px;
     margin-right: 30px;
     padding-bottom: 50px;
@@ -78,16 +78,21 @@
 }
 
 .replyDiv input {
-    height: 3em;
     width: 60%;
+    height: 40px;
     margin-left: 20%;
-    font-size: 15px;
+    font-size: 18px;
     line-height: 10px;
+    padding: 0;
     border : none;
     border-bottom: 2px solid #2370a5;
     background-color: transparent;
     resize: none;
     outline: none;
+}
+
+.replyDiv input::placeholder {
+    font-size: 20px;
 }
 
 .article {
@@ -97,10 +102,6 @@
     text-align: left;
     outline: none;
 }
-
-
-
-
 
 #replySubmitButton {
     position: relative;
