@@ -51,7 +51,7 @@ class Mypage extends Component {
   }, { withCredentials: true })
       .then((result) => {
         console.log(result)
-          this.setState({ showdata: result.data.posts , upload: false, profile: false });
+          this.setState({ showdata: result.data.posts , upload: true, profile: false });
       })
       .catch(err => {
           this.setState({

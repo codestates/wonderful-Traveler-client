@@ -15,7 +15,6 @@ class Postinfo extends Component {
             data: null,
         };
     }
-
     componentDidMount = () => {
         axios.get('http://localhost:8080/user/info',
             { withCredentials: true }
@@ -27,7 +26,6 @@ class Postinfo extends Component {
             })
             .catch((err) => {
             })
-
         axios.get('http://localhost:8080/user/likes/' + this.props.location.state.id,
             { withCredentials: true }
         )
@@ -50,7 +48,6 @@ class Postinfo extends Component {
         })
         .catch((err) => {
         })
-
     }
 
     toggleLike = () => {
@@ -86,7 +83,7 @@ class Postinfo extends Component {
             .catch((err) => {
             })
     };
-
+    
     pressEnter = (e) => {
         if (e.key === "Enter" && this.state.newReply) {
             this.add();
@@ -135,20 +132,17 @@ class Postinfo extends Component {
                             value={this.state.newReply}
                         />
                     </div>
-                    <div>
                         <div className="textbox">
                             {this.state.data !== null ?this.state.data.result.comments.map((el) => (
-                                <div className="textboxList" key='id'>
+                                <div className="textBoxList" key={el.id}>
                                     <div className="article">{el.article}</div>
-                                    <div className="userId">{el.user.username}</div>
+                                    <div className="userName">{el.user.username}</div>
                                 </div>
                             )) : null}
                         </div>
-                    </div>
                 </section>
             </div>
         )
     }
 }
-
 export default Postinfo
