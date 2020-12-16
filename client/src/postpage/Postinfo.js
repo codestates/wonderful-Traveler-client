@@ -15,7 +15,6 @@ class Postinfo extends Component {
             data: null,
         };
     }
-
     componentDidMount = () => {
         axios.get('http://localhost:8080/user/info',
             { withCredentials: true }
@@ -27,7 +26,6 @@ class Postinfo extends Component {
             })
             .catch((err) => {
             })
-
         axios.get('http://localhost:8080/user/likes/' + this.props.location.state.id,
             { withCredentials: true }
         )
@@ -50,26 +48,25 @@ class Postinfo extends Component {
         })
         .catch((err) => {
         })
-
     }
 
     toggleLike = () => {
         axios.post('http://localhost:8080/user/likes', {
             postId: this.props.location.state.id,
-      }, { withCredentials: true })
-          .then((result) => {
-              this.setState({like: result.data});
-              if(result.data === true){
+    }, { withCredentials: true })
+        .then((result) => {
+            this.setState({like: result.data});
+            if(result.data === true){
                 this.setState({likenum: this.state.likenum+1})
-              } else {
+            } else {
                 this.setState({likenum: this.state.likenum-1})
-              }
-          })
-          .catch(err => {
-              this.setState({
-                  error: '사진이 없습니다'
-              })
-          })
+            }
+        })
+        .catch(err => {
+            this.setState({
+                error: '사진이 없습니다'
+            })
+        })
     }
 
     textChange = (e) => {
@@ -90,7 +87,7 @@ class Postinfo extends Component {
             .catch((err) => {
             })
     };
-
+    
     pressEnter = (e) => {
         if (e.key === "Enter" && this.state.newReply) {
             this.add();
@@ -142,9 +139,9 @@ class Postinfo extends Component {
                     <div>
                         <div className="textbox">
                             {this.state.data !== null ?this.state.data.result.comments.map((el) => (
-                                <div className="textboxList" key='id'>
+                                <div className="textBoxList" key='id'>
                                     <div className="article">{el.article}</div>
-                                    <div className="userId">{el.user.username}</div>
+                                    <div className="userName">{el.user.username}</div>
                                 </div>
                             )) : null}
                         </div>
@@ -154,5 +151,4 @@ class Postinfo extends Component {
         )
     }
 }
-
 export default Postinfo

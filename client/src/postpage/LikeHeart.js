@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './LikeHeart.css';
 
 class LikeHeart extends Component {
-
     render() {
         const changeColour = this.props.like ? "red" : "grey"
 

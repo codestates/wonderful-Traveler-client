@@ -90,17 +90,30 @@
     outline: none;
 }
 
-.article {
-    position: relative;
-    list-style: none;
-    margin-left : 20%;
-    text-align: left;
-    outline: none;
+.textBoxList {
+    width: 60%;
+    margin-left: 20%;
+    display: inline-block;
+    margin: 0.2%, 0.2%,0.2%, 0.2%;
+    border-bottom: 1px solid #2370a5;
 }
 
+.article {
+    width: 90%;
+    position: relative;
+    float:left;
+    margin-left: 1%;
+    min-height: 2%;
+    overflow:hidden;
+    white-space:initial;
+    font-size: 15px;
+}
 
-
-
+.userName {
+    text-align: center;
+    float: right;
+    margin-right: 1%;
+}
 
 #replySubmitButton {
     position: relative;
@@ -115,7 +128,6 @@
     font-weight: bold;
     font-size: 15px;
     outline: none;
-
 } 
 
 .ql-align-center {
