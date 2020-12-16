@@ -1,7 +1,6 @@
 import './Postlist.css';
 import { Component } from 'react';
 import { Link } from 'react-router-dom';
-// import axios from 'axios';
 
 class Postlist extends Component {
     state = {
@@ -23,10 +22,10 @@ class Postlist extends Component {
                     state: {
                         id: this.props.postdata.id,
                         address: this.props.postdata.address,
-                        user: this.props.postdata.userId,
+                        user: this.props.postdata.user,
                         text: this.props.postdata.textValue,
                         title: this.props.postdata.title,
-                        like: this.props.postdata.like
+                        likes: this.props.postdata.likes
                     },
                 }}>
                     {this.props.list ?
@@ -41,7 +40,7 @@ class Postlist extends Component {
                             </div>
                             <div className="post-user">
                                 <div>
-                                    <div className="user">{this.props.postdata.user}</div>
+                                    <div className="user">{this.props.postdata.user.username}</div>
                                 </div>
                                 <div>
                                     <div className="create-at">{this.state.date}</div>
