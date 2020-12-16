@@ -36,14 +36,14 @@ class Postinfo extends Component {
             })
             .catch((err) => {
             })
-        this.setState({likenum: this.props.location.state.likes})
         
         axios.get('http://localhost:8080/post/' + this.props.location.state.id,
         { withCredentials: true }
     )
         .then((result) => {
             this.setState({
-                data: result.data
+                data: result.data,
+                likenum: result.data.result.likes
             })
         })
         .catch((err) => {
@@ -53,20 +53,16 @@ class Postinfo extends Component {
     toggleLike = () => {
         axios.post('http://localhost:8080/user/likes', {
             postId: this.props.location.state.id,
-    }, { withCredentials: true })
-        .then((result) => {
-            this.setState({like: result.data});
-            if(result.data === true){
-                this.setState({likenum: this.state.likenum+1})
-            } else {
-                this.setState({likenum: this.state.likenum-1})
-            }
-        })
-        .catch(err => {
-            this.setState({
-                error: '사진이 없습니다'
-            })
-        })
+      }, { withCredentials: true })
+          .then((result) => {
+              this.setState({like: result.data});
+              window.location.reload();
+          })
+          .catch(err => {
+              this.setState({
+                  error: '사진이 없습니다'
+              })
+          })
     }
 
     textChange = (e) => {
@@ -136,16 +132,14 @@ class Postinfo extends Component {
                             value={this.state.newReply}
                         />
                     </div>
-                    <div>
                         <div className="textbox">
                             {this.state.data !== null ?this.state.data.result.comments.map((el) => (
-                                <div className="textBoxList" key='id'>
+                                <div className="textBoxList" key={el.id}>
                                     <div className="article">{el.article}</div>
                                     <div className="userName">{el.user.username}</div>
                                 </div>
                             )) : null}
                         </div>
-                    </div>
                 </section>
             </div>
         )

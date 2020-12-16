@@ -9,15 +9,15 @@
 }
 
 .like {
-    width: 49%;
-    text-align: center;
+    width: 30%;
+    text-align: left;
     float: right;
     height: 250px;
     line-height: 250px;
 }
 
 .post-userinfo {
-   width: 50%; 
+   width: 68%; 
    height: 250px;
 }
 .post-userinfo > h2 {
