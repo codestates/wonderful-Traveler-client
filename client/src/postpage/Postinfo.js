@@ -10,9 +10,9 @@ class Postinfo extends Component {
         super();
         this.state = {
             newReply: "",
-            article: [],
             userdata: null,
-            like: false
+            like: false,
+            data: null,
         };
     }
     componentDidMount = () => {
@@ -36,17 +36,18 @@ class Postinfo extends Component {
             })
             .catch((err) => {
             })
-        axios.get('http://localhost:8080/postInfo/comment/' + this.props.location.state.id,
-            { withCredentials: true }
-        )
-            .then((result) => {
-                this.setState({
-                    article: result.data,
-                    postId : result.data
-                })
+        this.setState({likenum: this.props.location.state.likes})
+        
+        axios.get('http://localhost:8080/post/' + this.props.location.state.id,
+        { withCredentials: true }
+    )
+        .then((result) => {
+            this.setState({
+                data: result.data
             })
-            .catch((err) => {
-            })
+        })
+        .catch((err) => {
+        })
     }
 
     toggleLike = () => {
@@ -55,10 +56,15 @@ class Postinfo extends Component {
     }, { withCredentials: true })
         .then((result) => {
             this.setState({like: result.data});
+            if(result.data === true){
+                this.setState({likenum: this.state.likenum+1})
+            } else {
+                this.setState({likenum: this.state.likenum-1})
+            }
         })
         .catch(err => {
             this.setState({
-                error: 'err'
+                error: '사진이 없습니다'
             })
         })
     }
@@ -70,15 +76,18 @@ class Postinfo extends Component {
     };
 
     add = () => { // Button 요소의 onClick 이벤트 핸들러
-        let arr = this.state.article;
-        arr.push({
-            article: this.state.newReply,
-        });
-        this.setState({
-            article: arr,
-            newReply: "",
-        });
+        axios.post('http://localhost:8080/postInfo/comment',{
+            postId: this.props.location.state.id, article: this.state.newReply
+        },
+            { withCredentials: true }
+        )
+            .then((result) => {
+                window.location.reload();
+            })
+            .catch((err) => {
+            })
     };
+    
     pressEnter = (e) => {
         if (e.key === "Enter" && this.state.newReply) {
             this.add();
@@ -88,7 +97,7 @@ class Postinfo extends Component {
 
     render() {
         console.log(this.state)
-        console.log(this.props.location.state.likes)
+        console.log(this.state.likenum)
         return (
             <div>
                 <section className="topSection"></section>
@@ -110,7 +119,7 @@ class Postinfo extends Component {
                         </div>
                     </div>
                     <div className="otherDiv">
-                        <LikeHeart like={this.state.like} toggleLike={this.toggleLike}/>
+                        <LikeHeart like={this.state.like} toggleLike={this.toggleLike} likenum={this.state.likenum} userdata={this.props.location.state.user}/>
                     </div>
                 </section>
                 <section className="replyDiv">
@@ -129,12 +138,12 @@ class Postinfo extends Component {
                     </div>
                     <div>
                         <div className="textbox">
-                            {this.state.postId && this.state.article.map((el) => (
-                                <div className="textboxList" key='id'>
+                            {this.state.data !== null ?this.state.data.result.comments.map((el) => (
+                                <div className="textBoxList" key='id'>
                                     <div className="article">{el.article}</div>
-                                    <div className="postId">{el.postId}</div>
+                                    <div className="userName">{el.user.username}</div>
                                 </div>
-                            ))}
+                            )) : null}
                         </div>
                     </div>
                 </section>

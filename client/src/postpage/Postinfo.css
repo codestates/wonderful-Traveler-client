@@ -90,23 +90,29 @@
     outline: none;
 }
 
-.commentBox {
+.textBoxList {
     width: 60%;
-    margin: auto;
-}
-
-.textBox {
-    padding: 1px;
+    margin-left: 20%;
+    display: inline-block;
+    margin: 0.2%, 0.2%,0.2%, 0.2%;
+    border-bottom: 1px solid #2370a5;
 }
 
 .article {
+    width: 90%;
     position: relative;
-    list-style: none;
-    text-align: left;
-    outline: none;
-    border-bottom: 1px solid #2370a5;
-    padding: 5px;
-    margin-bottom: 5px;
+    float:left;
+    margin-left: 1%;
+    min-height: 2%;
+    overflow:hidden;
+    white-space:initial;
+    font-size: 15px;
+}
+
+.userName {
+    text-align: center;
+    float: right;
+    margin-right: 1%;
 }
 
 #replySubmitButton {
