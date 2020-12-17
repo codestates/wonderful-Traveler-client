@@ -16,7 +16,7 @@ class Postinfo extends Component {
         };
     }
     componentDidMount = () => {
-        axios.get('http://localhost:8080/user/info',
+        axios.get('https://wonderful-travler.net/user/info',
             { withCredentials: true }
         )
             .then((result) => {
@@ -26,7 +26,7 @@ class Postinfo extends Component {
             })
             .catch((err) => {
             })
-        axios.get('http://localhost:8080/user/likes/' + this.props.location.state.id,
+        axios.get('https://wonderful-travler.net/user/likes/' + this.props.location.state.id,
             { withCredentials: true }
         )
             .then((result) => {
@@ -36,33 +36,33 @@ class Postinfo extends Component {
             })
             .catch((err) => {
             })
-        
-        axios.get('http://localhost:8080/post/' + this.props.location.state.id,
-        { withCredentials: true }
-    )
-        .then((result) => {
-            this.setState({
-                data: result.data,
-                likenum: result.data.result.likes
+
+        axios.get('https://wonderful-travler.net/post/' + this.props.location.state.id,
+            { withCredentials: true }
+        )
+            .then((result) => {
+                this.setState({
+                    data: result.data,
+                    likenum: result.data.result.likes
+                })
             })
-        })
-        .catch((err) => {
-        })
+            .catch((err) => {
+            })
     }
 
     toggleLike = () => {
-        axios.post('http://localhost:8080/user/likes', {
+        axios.post('https://wonderful-travler.net/user/likes', {
             postId: this.props.location.state.id,
-      }, { withCredentials: true })
-          .then((result) => {
-              this.setState({like: result.data});
-              window.location.reload();
-          })
-          .catch(err => {
-              this.setState({
-                  error: '사진이 없습니다'
-              })
-          })
+        }, { withCredentials: true })
+            .then((result) => {
+                this.setState({ like: result.data });
+                window.location.reload();
+            })
+            .catch(err => {
+                this.setState({
+                    error: '사진이 없습니다'
+                })
+            })
     }
 
     textChange = (e) => {
@@ -72,7 +72,7 @@ class Postinfo extends Component {
     };
 
     add = () => { // Button 요소의 onClick 이벤트 핸들러
-        axios.post('http://localhost:8080/postInfo/comment',{
+        axios.post('https://wonderful-travler.net/postInfo/comment', {
             postId: this.props.location.state.id, article: this.state.newReply
         },
             { withCredentials: true }
@@ -83,7 +83,7 @@ class Postinfo extends Component {
             .catch((err) => {
             })
     };
-    
+
     pressEnter = (e) => {
         if (e.key === "Enter" && this.state.newReply) {
             this.add();
@@ -92,8 +92,6 @@ class Postinfo extends Component {
     };
 
     render() {
-        console.log(this.state)
-        console.log(this.state.likenum)
         return (
             <div>
                 <section className="topSection"></section>
@@ -115,7 +113,7 @@ class Postinfo extends Component {
                         </div>
                     </div>
                     <div className="otherDiv">
-                        <LikeHeart like={this.state.like} toggleLike={this.toggleLike} likenum={this.state.likenum} userdata={this.props.location.state.user}/>
+                        <LikeHeart like={this.state.like} toggleLike={this.toggleLike} likenum={this.state.likenum} userdata={this.props.location.state.user} />
                     </div>
                 </section>
                 <section className="replyDiv">
@@ -132,14 +130,14 @@ class Postinfo extends Component {
                             value={this.state.newReply}
                         />
                     </div>
-                        <div className="textbox">
-                            {this.state.data !== null ?this.state.data.result.comments.map((el) => (
-                                <div className="textBoxList" key={el.id}>
-                                    <div className="article">{el.article}</div>
-                                    <div className="userName">{el.user.username}</div>
-                                </div>
-                            )) : null}
-                        </div>
+                    <div className="textbox">
+                        {this.state.data !== null ? this.state.data.result.comments.map((el) => (
+                            <div className="textBoxList" key={el.id}>
+                                <div className="article">{el.article}</div>
+                                <div className="userName">{el.user.username}</div>
+                            </div>
+                        )) : null}
+                    </div>
                 </section>
             </div>
         )

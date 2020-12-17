@@ -14,7 +14,7 @@ class SetPassword extends Component {
   }
 
   componentDidMount = () => {
-    axios.get('http://localhost:8080/user/info',
+    axios.get('https://wonderful-travler.net/user/info',
       { withCredentials: true }
     )
       .then((result) => {
@@ -48,7 +48,7 @@ class SetPassword extends Component {
       })
     } else {
       this.setState({ error: "" });
-      axios.post("http://localhost:8080/user/info", {
+      axios.post("https://wonderful-travler.net/user/info", {
         password: this.state.oldPassword,
         newPassword: this.state.newPassword
       }, { withCredentials: true }

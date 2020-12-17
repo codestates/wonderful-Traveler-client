@@ -16,7 +16,7 @@ class Posts extends Component {
     }
     componentDidMount = () => {
         if (this.state.resultLoc === null) {
-            axios.get('http://localhost:8080/list', {
+            axios.get('https://wonderful-travler.net/list', {
             }, { withCredentials: true })
                 .then((result) => {
                     this.setState({ saveAlldata: result.data.posts, postdata: result.data.posts, showdata: result.data.posts.slice(0, this.state.number) });
@@ -43,7 +43,7 @@ class Posts extends Component {
     }
 
     ClickFilterLocation = () => {
-        axios.post('http://localhost:8080/posts/search', {
+        axios.post('https://wonderful-travler.net/posts/search', {
             address: document.querySelector(".input-box").value,
         }, { withCredentials: true })
             .then((result) => {
@@ -70,13 +70,11 @@ class Posts extends Component {
     }
 
     render() {
-        console.log(this.state)
         return (
             <div>
                 <section className="rec-section">
                     <div></div>
                 </section>
-
                 <section className="list-section">
                     <div>
                         <div className="number-posts">

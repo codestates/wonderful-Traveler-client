@@ -21,7 +21,7 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    axios.get('http://localhost:8080/user/info',
+    axios.get('https://wonderful-travler.net/user/info',
       { withCredentials: true }
     )
       .then((result) => {
@@ -30,12 +30,11 @@ class App extends Component {
         })
       })
       .catch(err => {
-        console.log(err)
       })
   }
 
   handleSignout = () => {
-    axios.post('http://localhost:8080/signout',
+    axios.post('https://wonderful-travler.net/signout',
       { withCredentials: true })
       .then((result) => {
         this.setState({
