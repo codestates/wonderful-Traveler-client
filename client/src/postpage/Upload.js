@@ -74,7 +74,7 @@ class Upload extends Component {
                 });
             } else {
                 this.setState({ error: '' });
-                axios.post("http://localhost:8080/post/update", {
+                axios.post("https://wonderful-travler.net/post/update", {
                     id: this.props.location.state.postdata.id,
                     title: this.state.title,
                     textValue: this.state.textValue,
@@ -133,7 +133,7 @@ class Upload extends Component {
                 });
             } else {
                 this.setState({ error: '' });
-                axios.post("http://localhost:8080/post/upload", {
+                axios.post("https://wonderful-travler.net/post/upload", {
                     title: this.state.title,
                     textValue: this.state.textValue,
                     location: this.state.location,
@@ -162,7 +162,6 @@ class Upload extends Component {
         } else {
             sendSever();
         }
-        console.log(this.state)
     }
 
     handleChange = (value) => {
