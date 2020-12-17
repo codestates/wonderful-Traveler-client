@@ -45,7 +45,7 @@ class Signup extends React.Component {
       })
     } else {
       this.setState({ error: "" });
-      axios.post("http://localhost:8080/signup", {
+      axios.post("https://wonderful-travler.net/signup", {
         email: this.state.email,
         password: this.state.password,
         username: this.state.username

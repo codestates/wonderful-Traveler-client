@@ -21,11 +21,11 @@ class LikeHeart extends Component {
                         <div className="post-userinfo">
                             <h2>글쓴이</h2>
                             <div>
-                            {this.props.userdata.picture !== null ?
-                            <img className="post-userpic" src={this.props.userdata.picture} alt="img" /> 
-                            : <img className="post-userpic" src="../../blankuser.png" alt="img"/>}
-                            <div className="post-username">{this.props.userdata.username}</div>
-                                </div>
+                                {this.props.userdata.picture !== null ?
+                                    <img className="post-userpic" src={this.props.userdata.picture} alt="img" />
+                                    : <img className="post-userpic" src="../../blankuser.png" alt="img" />}
+                                <div className="post-username">{this.props.userdata.username}</div>
+                            </div>
                         </div>
                         : null}
                 </div>

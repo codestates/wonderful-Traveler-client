@@ -10,7 +10,7 @@ class SetAvatar extends Component {
   }
 
   componentDidMount = () => {
-    axios.get('http://localhost:8080/user/info',
+    axios.get('https://wonderful-travler.net/user/info',
       { withCredentials: true }
     )
       .then((result) => {
@@ -21,7 +21,7 @@ class SetAvatar extends Component {
   }
 
   handleUpdate = () => {
-    axios.post("http://localhost:8080/user/info",
+    axios.post("https://wonderful-travler.net/user/info",
       { picture: this.state.url },
       { withCredentials: true })
       .then(() => {
@@ -51,7 +51,6 @@ class SetAvatar extends Component {
   }
 
   render() {
-    console.log(this.props.userinfo)
     return (
       <div className="avatar-upload">
         <div>
